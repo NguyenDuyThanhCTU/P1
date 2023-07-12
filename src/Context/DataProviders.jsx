@@ -1,26 +1,23 @@
 import React, { createContext, useContext, useState } from "react";
-import { useGetDocument } from "../Config/Services/Firebase/FireStoreDB";
 
 export const DataContext = createContext();
 
 export const DataProviders = ({ children }) => {
   // Default
-  const [Gmail, setGmail] = useState("");
-  const [Address, setAddress] = useState("");
-  const [Location, setLocation] = useState("");
-  const [Phone, setPhone] = useState("");
+
+  const [ContactData, setContactData] = useState("");
+  const [TradeMarkData, setTradeMarkData] = useState("");
+  const [HeaderAdmin, setHeaderAdmin] = useState();
+
+  const [accounts, setAccounts] = useState("");
+  const [users, setUsers] = useState([]);
 
   const [Banner, setBanner] = useState([]);
 
   const [SocialMedia, setSocialMedia] = useState([]);
   const [Products, setProducts] = useState([]);
-  const [Logo, setLogo] = useState("");
-  const [Ico, setIco] = useState("");
-  const [Websitename, setWebsiteName] = useState("");
 
   // Custom
-
-  const [Advertisement, setAdvertisement] = useState([]);
   const [NewsPosts, setNewsPosts] = useState([]);
 
   const [TypePost, setTypePost] = useState([]);
@@ -33,17 +30,19 @@ export const DataProviders = ({ children }) => {
   const [StartJob, setStartJob] = useState();
   const [Avatar, setAvatar] = useState();
 
-  const [nameAdmin, setNameAdmin] = useState();
-  const [avatarAdmin, setAvatarAdmin] = useState();
-
-  const accounts = useGetDocument("accounts");
-  const website = useGetDocument("website");
-
   return (
     <DataContext.Provider
       value={{
-        website,
         accounts,
+        setAccounts,
+        setHeaderAdmin,
+        setUsers,
+        users,
+        HeaderAdmin,
+        TradeMarkData,
+        setTradeMarkData,
+        ContactData,
+        setContactData,
         nameAdmin,
         setNameAdmin,
         avatarAdmin,
@@ -73,29 +72,11 @@ export const DataProviders = ({ children }) => {
         NewsPosts,
         setNewsPosts,
 
-        Phone,
-        setPhone,
-        Gmail,
-        setGmail,
-        Location,
-        setLocation,
-        Address,
-        setAddress,
-
         Banner,
         setBanner,
-        Advertisement,
-        setAdvertisement,
 
         SocialMedia,
         setSocialMedia,
-
-        Logo,
-        setLogo,
-        Websitename,
-        setWebsiteName,
-        Ico,
-        setIco,
       }}
     >
       {children}

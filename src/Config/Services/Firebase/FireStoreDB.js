@@ -11,11 +11,8 @@ import {
   orderBy,
   Timestamp,
   deleteDoc,
-  onSnapshot,
 } from "firebase/firestore";
 import { db } from "../../Firebase";
-import { useState } from "react";
-import { useEffect } from "react";
 
 export const addDocument = async (Collection, data) => {
   data.createdAt = serverTimestamp();
@@ -26,22 +23,6 @@ export const addDocument = async (Collection, data) => {
   } catch (error) {
     console.error("Error adding document: ", error);
   }
-};
-
-export const useGetDocument = (collectionName) => {
-  const [data, getData] = useState([]);
-  useEffect(() => {
-    const q = query(collection(db, collectionName), orderBy("createdAt"));
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      let data = [];
-      querySnapshot.forEach((doc) => {
-        data.push({ ...doc.data(), id: doc.id });
-      });
-      getData(data);
-    });
-    return () => unsubscribe();
-  }, [collectionName]);
-  return data;
 };
 
 export const getDocuments = async (Collection) => {
@@ -146,6 +127,11 @@ export const checkDocument = async (Collection, currentData) => {
       });
   });
 };
+
+export const updateDocument = async (collectionName, id, newData) => {
+  await updateDoc(doc(db, collectionName, id), newData);
+};
+
 export const updateArrayFieldAtIndex = async (
   collectionName,
   id,
@@ -180,9 +166,6 @@ export const updateArrayFieldAtIndex = async (
   } catch (error) {
     console.error("Lỗi khi cập nhật trường mảng:", error);
   }
-};
-export const updateDocument = async (collectionName, id, newData) => {
-  await updateDoc(doc(db, collectionName, id), newData);
 };
 
 export const delDocument = async (CollectionName, id) => {

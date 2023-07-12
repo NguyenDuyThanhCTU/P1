@@ -10,7 +10,6 @@ import {
 import { googleSignIn } from "../../../Config/Services/Auth/GoogleAuth";
 import { notification } from "antd";
 import { useAuth } from "../../../Context/AuthProviders";
-import { useData } from "../../../Context/DataProviders";
 
 export const LeftSide = ({
   setCorrect,
@@ -24,9 +23,13 @@ export const LeftSide = ({
   const [Password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const { setUsers, setVerify } = useAuth();
-  const { accounts } = useData();
+  const { accounts, setAccounts, setUsers, setVerify } = useAuth();
 
+  useEffect(() => {
+    getDocuments("accounts").then((data) => {
+      setAccounts(data);
+    });
+  }, []);
   const HandleChangePass = () => {
     if (accounts[0].username === Username) {
       setIsChangePasswords(true);

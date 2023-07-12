@@ -7,7 +7,7 @@ import { getStorage } from "firebase/storage";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 const Trademark = () => {
-  const { Websitename, Logo, Ico } = useData();
+  const { TradeMarkData } = useData();
   const { setIsRefetch } = useStateProvider();
   const [Data, setData] = useState("");
   const [isSelected, setSelected] = useState(false);
@@ -57,12 +57,12 @@ const Trademark = () => {
     {
       name: "Logo Website",
       type: "input",
-      placeholder: Logo,
+      placeholder: TradeMarkData.websiteLogo,
     },
     {
       name: "Logo Trang",
       type: "input",
-      placeholder: Ico,
+      placeholder: TradeMarkData.websiteIco,
     },
   ];
 
@@ -108,7 +108,7 @@ const Trademark = () => {
           <div className="flex gap-5">
             <div onClick={() => setSelected(5)} className="w-full">
               <input
-                placeholder={Websitename}
+                placeholder={TradeMarkData.websiteName}
                 type="text"
                 className="px-4 py-2 text-black outline-none rounded-2xl bg-gray-300 w-full "
                 onChange={(e) => setData(e.target.value)}
@@ -173,7 +173,7 @@ const Trademark = () => {
             <label>
               <div className="flex justify-center mt-10  h-[300px] w-[350px] border rounded-lg cursor-pointer">
                 <img
-                  src={`${LogoUrl ? LogoUrl : Logo}`}
+                  src={`${LogoUrl ? LogoUrl : TradeMarkData.websiteLogo}`}
                   alt="logo"
                   className="object-contain p-2"
                 />
@@ -211,7 +211,7 @@ const Trademark = () => {
             <label>
               <div className="flex justify-center mt-10  h-[300px] w-[350px] border rounded-lg cursor-pointer">
                 <img
-                  src={`${IcoUrl ? IcoUrl : Ico}`}
+                  src={`${IcoUrl ? IcoUrl : TradeMarkData.websiteIco}`}
                   alt="logo"
                   className="object-contain p-2"
                 />

@@ -6,7 +6,7 @@ import Header from "./Header/Header";
 import Sidebar from "./Sidebar/Sidebar";
 import { RxCrossCircled } from "react-icons/rx";
 import { FaList } from "react-icons/fa";
-import Fetch from "../Item/Fetch";
+
 import { useStateProvider } from "../../Context/StateProvider";
 
 import Content from "../Admin/Content/Content";
@@ -43,7 +43,6 @@ const Admin = () => {
         ) : null}
       </div>
 
-      <Fetch />
       <div
         className={`${
           Hidden ? "w-[1px] " : "w-[350px] "

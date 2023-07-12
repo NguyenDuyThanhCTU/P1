@@ -7,29 +7,29 @@ import { useStateProvider } from "../../../../../Context/StateProvider";
 const Contact = () => {
   const { setIsRefetch } = useStateProvider();
   const [Data, setData] = useState("");
-  const { Phone, Gmail, Location, Address } = useData();
+  const { ContactData } = useData();
   const [isSelected, setSelected] = useState(false);
 
   const ContactDashboard = [
     {
       name: "Số điện thoại",
       type: "input",
-      placeholder: Phone,
+      placeholder: ContactData.phone,
     },
     {
       name: "Gmail",
       type: "input",
-      placeholder: Gmail,
+      placeholder: ContactData.gmail,
     },
     {
       name: "Địa chỉ",
       type: "textarea",
-      placeholder: Address,
+      placeholder: ContactData.address,
     },
     {
       name: "Vị trí",
       type: "input",
-      placeholder: Location,
+      placeholder: ContactData.location,
     },
   ];
 
@@ -103,7 +103,7 @@ const Contact = () => {
             );
           })}
           <iframe
-            src={Location}
+            src={ContactData.location}
             width="300"
             height="200"
             allowfullscreen=""

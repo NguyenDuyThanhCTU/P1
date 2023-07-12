@@ -12,16 +12,8 @@ const Fetch = () => {
     setNameAdmin,
     setAvatarAdmin,
 
-    setPhone,
-    setAdvertisement,
-
-    setLocation,
-    setLogo,
-    setWebsiteName,
     setProducts,
-    setGmail,
-    setAddress,
-    setIco,
+
     setSocialMedia,
     setTypePost,
     setSlides,
@@ -31,6 +23,11 @@ const Fetch = () => {
     setYearOfBirth,
     setStartJob,
     setAvatar,
+    setContactData,
+    setTradeMarkData,
+    setHeaderAdmin,
+    setAccounts,
+    setUsers,
   } = useData();
 
   const { isRefetch, setIsRefetch } = useStateProvider();
@@ -45,12 +42,9 @@ const Fetch = () => {
     }
     getDocuments("website").then((data) => {
       //Contact
-      setPhone(data[0].phone);
-      setGmail(data[0].gmail);
-      setLocation(data[0].location);
-      setAddress(data[0].address);
+      setContactData(data[0]);
       //Slide
-      setAdvertisement(data[2].advertisement);
+
       //Information
       setUserName(data[1].username);
       setAcademic(data[1].academic);
@@ -61,14 +55,15 @@ const Fetch = () => {
       //SocialMedia
       setSocialMedia(data[3].Data);
       //Trademark
-      setLogo(data[4].websiteLogo);
-      setWebsiteName(data[4].websiteName);
-      setIco(data[4].websiteIco);
+      setTradeMarkData(data[4]);
     });
 
     getDocuments("accounts").then((data) => {
-      setNameAdmin(data[0].displayName);
-      setAvatarAdmin(data[0].photoURL);
+      setAccounts(data[0]);
+    });
+
+    getDocuments("users").then((data) => {
+      setUsers(data);
     });
 
     getDocuments("slide").then((data) => {

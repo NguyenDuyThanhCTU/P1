@@ -5,15 +5,12 @@ import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 import { notification } from "antd";
 
 import { useStateProvider } from "../../../../Context/StateProvider";
-import {
-  addDocument,
-  updateDocument,
-} from "../../../../Config/Services/Firebase/FireStoreDB";
+import { updateDocument } from "../../../../Config/Services/Firebase/FireStoreDB";
 import { useData } from "../../../../Context/DataProviders";
 
 const Profile = () => {
   const { setIsRefetch, setIsUploadProduct } = useStateProvider();
-  const { nameAdmin, avatarAdmin } = useData();
+  const { HeaderAdmin } = useData();
   const [Data, setData] = useState("");
   const [isSelected, setSelected] = useState(false);
   const [error, setError] = useState(false);
@@ -56,12 +53,12 @@ const Profile = () => {
     {
       name: "Tên hiển thị",
       type: "input",
-      placeholder: nameAdmin,
+      placeholder: HeaderAdmin.displayName,
     },
     {
       name: "Ảnh đại diện",
       type: "input",
-      placeholder: avatarAdmin,
+      placeholder: HeaderAdmin.photoURL,
     },
   ];
   const HandleUpdate = (idx) => {
@@ -101,7 +98,7 @@ const Profile = () => {
             <label>
               <div className="flex justify-center mt-10  h-[300px] w-[350px] border rounded-lg cursor-pointer">
                 <img
-                  src={`${AvatarUrl ? AvatarUrl : avatarAdmin}`}
+                  src={`${AvatarUrl ? AvatarUrl : HeaderAdmin.photoURL}`}
                   alt="logo"
                   className="object-contain p-2"
                 />
