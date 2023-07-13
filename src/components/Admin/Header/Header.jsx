@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { useAuth } from "../../../Context/AuthProviders";
 import DropDown from "../Item/DropDown";
 import Clock from "./Clock/Clock";
+import { useData } from "../../../Context/DataProviders";
 
 const Header = () => {
-  const { users } = useAuth();
+  const { HeaderAdmin } = useData();
 
   return (
     <div className=" h-14 bg-Blue3D font-LexendDeca text-white flex ">
@@ -13,16 +13,16 @@ const Header = () => {
           <div className="flex items-center">
             <div className="group relative ">
               <img
-                src={users?.photoURL}
+                src={HeaderAdmin?.photoURL}
                 alt="logo"
-                className="w-12 h-12 inline-block "
+                className="w-12 h-12 inline-block object-cover rounded-full "
               />
               <div className="absolute right-[-115px] top-[75px] hidden  group-hover:block ">
                 <DropDown />
               </div>
             </div>
 
-            <p className="inline-block ml-3">{users?.displayName}</p>
+            <p className="inline-block ml-3">{HeaderAdmin?.displayName}</p>
           </div>
         </div>
 

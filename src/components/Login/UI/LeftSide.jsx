@@ -10,6 +10,7 @@ import {
 import { googleSignIn } from "../../../Config/Services/Auth/GoogleAuth";
 import { notification } from "antd";
 import { useAuth } from "../../../Context/AuthProviders";
+import { useData } from "../../../Context/DataProviders";
 
 export const LeftSide = ({
   setCorrect,
@@ -23,15 +24,11 @@ export const LeftSide = ({
   const [Password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const { accounts, setAccounts, setUsers, setVerify } = useAuth();
+  const { setVerify } = useAuth();
+  const { setHeaderAdmin, accounts } = useData();
 
-  useEffect(() => {
-    getDocuments("accounts").then((data) => {
-      setAccounts(data);
-    });
-  }, []);
   const HandleChangePass = () => {
-    if (accounts[0].username === Username) {
+    if (accounts.username === Username) {
       setIsChangePasswords(true);
     } else {
       notification["error"]({
@@ -43,11 +40,9 @@ export const LeftSide = ({
   };
 
   const HandleLogin = () => {
-    if (
-      Username === accounts[0].username &&
-      Password === accounts[0].password
-    ) {
-      setUsers(accounts[0]);
+    console.log(Username, accounts.username);
+    if (Username === accounts.username && Password === accounts.password) {
+      setHeaderAdmin(accounts);
       setIsLoading(false);
       setVerify(true);
       setCorrect(true);
@@ -75,7 +70,7 @@ export const LeftSide = ({
     googleSignIn().then((data) => {
       getDocumentsByField("users", "email", data).then((data) => {
         if (data[0].admin) {
-          setUsers(data[0]);
+          setHeaderAdmin(data[0]);
           setVerify(true);
           notification["success"]({
             message: "Đăng nhập thành công !",

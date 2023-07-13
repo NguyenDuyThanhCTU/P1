@@ -5,16 +5,18 @@ import { BiHide, BiShow } from "react-icons/bi";
 import {
   checkDocument,
   updateDocument,
-  updateDocument1,
 } from "../../../Config/Services/Firebase/FireStoreDB";
-import { useAuth } from "../../../Context/AuthProviders";
 import { notification } from "antd";
+import { useData } from "../../../Context/DataProviders";
+import { useStateProvider } from "../../../Context/StateProvider";
+
 export const ChangePassword = ({ setIsChangePasswords }) => {
   const [errorMessage, setErrorMessage] = useState(false);
   const [Hide, setHide] = useState(false);
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
-  const { accounts } = useAuth();
+  const { accounts } = useData();
+  const { setIsRefetch } = useStateProvider();
 
   const HandleSubmit = async () => {
     if (!currentPassword || !newPassword) {
@@ -26,11 +28,12 @@ export const ChangePassword = ({ setIsChangePasswords }) => {
 
       try {
         await checkDocument("accounts", currentPassword);
-        updateDocument("accounts", accounts[0].id, Data).then(() => {
+        updateDocument("accounts", accounts.id, Data).then(() => {
           notification["success"]({
             message: "Đổi mật khẩu thành công !",
             description: `Mật khẩu của bạn đã được cập nhật !`,
           });
+          setIsRefetch("changePassword");
         });
       } catch (error) {
         notification["error"]({

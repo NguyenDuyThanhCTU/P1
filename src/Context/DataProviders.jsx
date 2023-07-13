@@ -14,7 +14,7 @@ export const DataProviders = ({ children }) => {
 
   const [Banner, setBanner] = useState([]);
 
-  const [SocialMedia, setSocialMedia] = useState([]);
+  const [SocialMedia, setSocialMedia] = useState("");
   const [Products, setProducts] = useState([]);
 
   // Custom
@@ -43,10 +43,6 @@ export const DataProviders = ({ children }) => {
         setTradeMarkData,
         ContactData,
         setContactData,
-        nameAdmin,
-        setNameAdmin,
-        avatarAdmin,
-        setAvatarAdmin,
 
         Avatar,
         setAvatar,

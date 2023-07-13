@@ -71,18 +71,27 @@ const Profile = () => {
     } else {
       let newData;
       if (idx === 0) {
-        newData = { displayName: `${Data ? Data : AvatarUrl}` };
+        newData = { displayName: Data };
+        HeaderAdmin.displayName = Data;
       } else if (idx === 1) {
-        newData = { photoURL: Data };
+        newData = { photoURL: `${Data ? Data : AvatarUrl}` };
+        HeaderAdmin.photoURL = Data;
       }
-      updateDocument("accounts", "admin", newData).then(() => {
+      let DocumentName;
+      if (HeaderAdmin.email) {
+        DocumentName = "users";
+      } else {
+        DocumentName = "accounts";
+      }
+
+      updateDocument(DocumentName, HeaderAdmin.id, newData).then(() => {
         notification["success"]({
           message: "Thành công !",
           description: `
             Thông tin đã được CẬP NHẬT !`,
         });
         handleDiscard();
-        setIsRefetch("trademark");
+        setIsUploadProduct("");
       });
     }
   };

@@ -28,6 +28,7 @@ const Fetch = () => {
     setHeaderAdmin,
     setAccounts,
     setUsers,
+    accounts,
   } = useData();
 
   const { isRefetch, setIsRefetch } = useStateProvider();
@@ -35,27 +36,34 @@ const Fetch = () => {
   useEffect(() => {
     setIsRefetch(1);
   }, []);
-
   useEffect(() => {
     if (isRefetch != "") {
       setIsRefetch("");
     }
     getDocuments("website").then((data) => {
+      data.forEach((items) => {
+        if (items.id === "Contact") {
+          setContactData(data);
+        } else if (items.id === "Trademark") {
+          setTradeMarkData(data);
+        } else if (items.id === "SocialMedia") {
+          setSocialMedia(data.Data);
+        }
+      });
       //Contact
-      setContactData(data[0]);
+
       //Slide
 
       //Information
-      setUserName(data[1].username);
-      setAcademic(data[1].academic);
-      setWork(data[1].work);
-      setYearOfBirth(data[1].yearOfBirth);
-      setStartJob(data[1].startJob);
-      setAvatar(data[1].avatar);
+      // setUserName(data[1].username);
+      // setAcademic(data[1].academic);
+      // setWork(data[1].work);
+      // setYearOfBirth(data[1].yearOfBirth);
+      // setStartJob(data[1].startJob);
+      // setAvatar(data[1].avatar);
       //SocialMedia
-      setSocialMedia(data[3].Data);
+
       //Trademark
-      setTradeMarkData(data[4]);
     });
 
     getDocuments("accounts").then((data) => {
