@@ -9,7 +9,7 @@ const Contact = () => {
   const [Data, setData] = useState("");
   const { ContactData } = useData();
   const [isSelected, setSelected] = useState(false);
-
+  console.log(ContactData);
   const ContactDashboard = [
     {
       name: "Số điện thoại",

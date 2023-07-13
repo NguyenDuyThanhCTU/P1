@@ -9,26 +9,17 @@ import {
 
 const Fetch = () => {
   const {
-    setNameAdmin,
-    setAvatarAdmin,
-
     setProducts,
 
     setSocialMedia,
     setTypePost,
     setSlides,
-    setUserName,
-    setAcademic,
-    setWork,
-    setYearOfBirth,
-    setStartJob,
-    setAvatar,
+
     setContactData,
     setTradeMarkData,
-    setHeaderAdmin,
+
     setAccounts,
     setUsers,
-    accounts,
   } = useData();
 
   const { isRefetch, setIsRefetch } = useStateProvider();
@@ -43,11 +34,11 @@ const Fetch = () => {
     getDocuments("website").then((data) => {
       data.forEach((items) => {
         if (items.id === "Contact") {
-          setContactData(data);
+          setContactData(items);
         } else if (items.id === "Trademark") {
-          setTradeMarkData(data);
+          setTradeMarkData(items);
         } else if (items.id === "SocialMedia") {
-          setSocialMedia(data.Data);
+          setSocialMedia(items.Data);
         }
       });
       //Contact
