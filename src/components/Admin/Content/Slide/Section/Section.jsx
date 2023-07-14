@@ -9,7 +9,6 @@ import { Empty, notification } from "antd";
 import ListSlide from "./ListSlide/ListSlide";
 import { useStateProvider } from "../../../../../Context/StateProvider";
 import { addDocument } from "../../../../../Config/Services/Firebase/FireStoreDB";
-import SubSection from "./SubSection/SubSection";
 
 const Section = ({ name, type }) => {
   const [imageUrl, setImageUrl] = useState();
@@ -17,9 +16,6 @@ const Section = ({ name, type }) => {
   const [Data, setData] = useState();
   const [selected, setSelected] = useState(false);
   const { setIsRefetch } = useStateProvider();
-
-  const progressCircle = useRef(null);
-  const progressContent = useRef(null);
 
   const uploadImage = async (e) => {
     let selectImage = e.target.files[0];
@@ -155,7 +151,7 @@ const Section = ({ name, type }) => {
                 </div>
               )}
             </div>
-            <SubSection type={type} />
+            {/* <SubSection type={type} /> */}
           </div>
 
           <ListSlide type={type} />

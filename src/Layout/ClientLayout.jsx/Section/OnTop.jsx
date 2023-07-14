@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { BsFillArrowUpSquareFill } from "react-icons/bs";
+
 function OnTop() {
   const [showButton, setShowButton] = useState(false);
-
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);

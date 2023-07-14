@@ -1,16 +1,23 @@
 import Login from "../components/Login/Login";
 import Admin from "../components/Admin/Admin";
-import EmptyLayout from "../Layout/EmptyLayout";
+import DefaultLayout from "../Layout/DefaultLayout";
+import Home from "../components/Client/Home/Home";
+import ClientLayout from "../Layout/ClientLayout.jsx/ClientLayout";
 
 export const AllRoutes = [
   {
     path: "/login",
     component: Login,
-    Layout: EmptyLayout,
+    Layout: DefaultLayout,
   },
   {
     path: "/admin",
     component: Admin,
-    Layout: EmptyLayout,
+    Layout: DefaultLayout,
+  },
+  {
+    path: "/",
+    component: Home,
+    Layout: ClientLayout,
   },
 ];

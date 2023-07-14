@@ -28,7 +28,6 @@ const SocialMedia = () => {
     );
   };
 
-  const HandleDelete = () => {};
   return (
     <div className="">
       <div className="  border rounded-md border-gray-500">

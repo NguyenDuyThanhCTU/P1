@@ -3,10 +3,10 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 import { AllRoutes } from "./routes/index";
 import { AuthProviders } from "./Context/AuthProviders";
-import PersonaLayout from "./Layout/PersonaLayout/PersonaLayout";
 import { StateProvider } from "./Context/StateProvider";
 import { DataProviders } from "./Context/DataProviders";
 import Fetch from "./components/Item/Fetch";
+import DefaultLayout from "./Layout/DefaultLayout";
 const App = () => {
   return (
     <>
@@ -17,9 +17,9 @@ const App = () => {
             <Router>
               <Routes>
                 {AllRoutes.map((route, index) => {
-                  let Layout = PersonaLayout;
+                  let Layout = DefaultLayout;
                   if (route.Layout) Layout = route.Layout;
-                  else Layout = PersonaLayout;
+                  else Layout = DefaultLayout;
 
                   const Page = route.component;
                   return (
