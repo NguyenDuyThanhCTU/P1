@@ -14,6 +14,7 @@ module.exports = {
       fontFamily: {
         OpenSans: ["Open Sans", "sans-serif"],
         LexendDeca: ["Lexend Deca", "sans-serif"],
+        Montserrat: ["Montserrat", "sans-serif"],
       },
       colors: {
         redPrimmary: "#ed1b2e",

@@ -133,21 +133,6 @@ export const AdminPostSection = [
 ];
 //Custom
 
-export const HeaderItems = [
-  {
-    name: "giới thiệu",
-  },
-  {
-    name: "Ô tô điện",
-  },
-  {
-    name: "Hệ thống phân phối",
-  },
-  {
-    name: "Tin tức",
-  },
-];
-
 export const SocialMedia = [
   {
     title: "Trang zalo",
@@ -187,18 +172,22 @@ export const SocialMedia = [
   },
 ];
 
-export const HeaderItem = [
+export const HeaderItems = [
   {
     name: "giới thiệu",
+    link: "",
   },
   {
     name: "Ô tô điện",
+    link: "",
   },
   {
     name: "Hệ thống phân phối",
+    link: "https://wuling-ev.vn/he-thong-showroom",
   },
   {
     name: "Tin tức",
+    link: "",
   },
 ];
 export const FooterRoles = [
@@ -218,5 +207,74 @@ export const FooterRoles = [
   {
     name: "Miễn trừ trách nhiệm",
     link: "https://wuling-ev.vn/mien-tru-trach-nhiem",
+  },
+];
+
+export const HomeNavItems = [
+  {
+    name: "Giới thiệu",
+    location: "Section1",
+  },
+  {
+    name: "Về chúng tôi",
+    location: "Section2",
+  },
+  {
+    name: "Video giới thiệu",
+    location: "Section3",
+  },
+  {
+    name: "Sản phẩm",
+    location: "Section4",
+  },
+  {
+    name: "Tin tức",
+    location: "Section5",
+  },
+  {
+    name: "Hậu mãi",
+    location: "Section6",
+  },
+  {
+    name: "Hệ thống phân phối",
+    location: "Footer",
+  },
+];
+
+export const DropHeaderItems = [
+  {
+    title: [
+      {
+        name: " Về TMT Motors",
+      },
+      {
+        name: "Về Liên doanh của General Motors (Mỹ) - SGMW",
+      },
+      {
+        name: " Về Wuling",
+      },
+    ],
+    image: "https://wuling-ev.vn/Content/images/img-about.png",
+  },
+  {
+    title: [],
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/xedienmientay-cb391.appspot.com/o/image%2F2.png?alt=media&token=a0cac0e8-552e-4c5a-89e5-4629af722b96",
+  },
+  {
+    title: [],
+    image: "",
+  },
+  {
+    title: [
+      {
+        name: "Khác",
+      },
+      {
+        name: "Công ty",
+      },
+    ],
+    image:
+      "https://firebasestorage.googleapis.com/v0/b/xedienmientay-cb391.appspot.com/o/image%2F1.png?alt=media&token=8cb3717a-d5e7-435a-b318-f520cc482095",
   },
 ];

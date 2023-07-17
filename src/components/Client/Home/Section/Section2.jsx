@@ -2,8 +2,8 @@ import React from "react";
 
 const Section2 = () => {
   return (
-    <div className="h-[100vh] w-full flex font-Montserrat items-center">
-      <div className="px-[100px] w-[40%]">
+    <div className="h-[100vh] w-full flex font-Montserrat items-center d:flex-row p:flex-col d:gap-0 p:gap-10">
+      <div className="d:px-[100px] d:w-[40%] p:px-2 p:w-auto">
         <div className="flex flex-col gap-7 text-[#666666]">
           <h3 className="text-[32px] text-black font-light">Về chúng tôi</h3>
           <p>
@@ -31,11 +31,11 @@ const Section2 = () => {
           </div>
         </div>
       </div>
-      <div className="w-[60%] flex">
+      <div className="d:w-[60%] p:w-auto">
         <img
           src="https://wuling-ev.vn/uploads/files/Social%2001%20W2%20Apr.png"
           alt="img"
-          className="h-[98vh] w-full"
+          className="d:h-[98vh] p:h-[30vh] w-full"
         />
       </div>
     </div>

@@ -40,7 +40,6 @@ export const LeftSide = ({
   };
 
   const HandleLogin = () => {
-    console.log(Username, accounts.username);
     if (Username === accounts.username && Password === accounts.password) {
       setHeaderAdmin(accounts);
       setIsLoading(false);

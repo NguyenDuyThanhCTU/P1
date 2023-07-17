@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
 
-import { LeftSide } from "./UI/LeftSide";
-import { RightSide } from "./UI/RightSide";
-import { ChangePassword } from "./UI/ChangePassword";
+import { LeftSide } from "./Section/LeftSide";
+import { RightSide } from "./Section/RightSide";
+import { ChangePassword } from "./Section/ChangePassword";
 import Alert from "../Item/Alert";
 import Loading from "../Item/Loading";
 const Login = () => {

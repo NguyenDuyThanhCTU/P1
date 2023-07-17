@@ -26,13 +26,22 @@ const Section1 = () => {
         {HomeSlideItems.map((items, idx) => (
           <SwiperSlide>
             <Link to={items.link}>
-              {" "}
-              <img
-                src={items.image}
-                alt=""
-                key={idx}
-                className="h-[90vh] w-full cover "
-              />
+              <div className="d:block p:hidden">
+                <img
+                  src={items.image}
+                  alt=""
+                  key={idx}
+                  className="h-[90vh] w-full object-cover "
+                />
+              </div>
+              <div className="d:hidden p:block">
+                <img
+                  src={items.image}
+                  alt=""
+                  key={idx}
+                  className="h-[30vh] w-full object-contain "
+                />
+              </div>
             </Link>
           </SwiperSlide>
         ))}
