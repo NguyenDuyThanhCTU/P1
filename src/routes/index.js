@@ -4,6 +4,7 @@ import DefaultLayout from "../Layout/DefaultLayout";
 import Home from "../components/Client/Home/Home";
 import ClientLayout from "../Layout/ClientLayout.jsx/ClientLayout";
 import Introduction from "../components/Client/Introduction/Introduction";
+import Product from "../components/Client/Products/Product";
 
 export const AllRoutes = [
   {
@@ -26,11 +27,11 @@ export const AllRoutes = [
     component: Introduction,
     Layout: ClientLayout,
   },
-  // {
-  //   path: "/products",
-  //   component: Introduction,
-  //   Layout: ClientLayout,
-  // },
+  {
+    path: "/products",
+    component: Product,
+    Layout: ClientLayout,
+  },
   // {
   //   path: "/branches",
   //   component: Introduction,

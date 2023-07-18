@@ -81,3 +81,14 @@ export const HomeSection5Items = [
       "Ngày 29/6/2023, tại Hà Nội và TP Hồ Chí Minh, Công ty Cổ phần ô tô TMT (TMT Motors) chính thức ra mắt và tổ chức lái thử xe Wuling HongGuang MiniEV - mẫu xe tiên phong khai mở phân khúc ô tô điện mini tại Việt Nam, với bốn phiên bản và giá bán chỉ từ 239 triệu đồng, đồng thời nhận đặt cọc từ 29/6/2023.",
   },
 ];
+
+//Slide
+
+export const ProductSection1Items = [
+  {
+    image: "https://wuling-ev.vn/Content/images/product/Frame1/bg_2.jpg",
+  },
+  {
+    image: "https://wuling-ev.vn/Content/images/product/Frame1/bg_1.jpg",
+  },
+];

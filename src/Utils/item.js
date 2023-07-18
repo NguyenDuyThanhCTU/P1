@@ -207,37 +207,6 @@ export const FooterRoles = [
   },
 ];
 
-export const HomeNavItems = [
-  {
-    name: "Giới thiệu",
-    location: "Section1",
-  },
-  {
-    name: "Về chúng tôi",
-    location: "Section2",
-  },
-  {
-    name: "Video giới thiệu",
-    location: "Section3",
-  },
-  {
-    name: "Sản phẩm",
-    location: "Section4",
-  },
-  {
-    name: "Tin tức",
-    location: "Section5",
-  },
-  {
-    name: "Hậu mãi",
-    location: "Section6",
-  },
-  {
-    name: "Hệ thống phân phối",
-    location: "Footer",
-  },
-];
-
 export const DropHeaderItems = [
   {
     title: [

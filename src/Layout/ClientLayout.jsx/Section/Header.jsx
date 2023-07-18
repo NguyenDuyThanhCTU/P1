@@ -5,8 +5,9 @@ import { AiOutlineDown, AiOutlineMenu } from "react-icons/ai";
 import { DropHeaderItems, HeaderItems } from "../../../Utils/item";
 import DropHeader from "../Item/DropHeader";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useData } from "../../../Context/DataProviders";
+import { useStateProvider } from "../../../Context/StateProvider";
 
 const Header = () => {
   const [Data, setData] = useState();
@@ -28,13 +29,16 @@ const Header = () => {
   return (
     <div className="relative ">
       <div className="p:hidden d:flex items-center justify-between px-10  w-full border-b shadow-2xl">
-        <div>
-          <img
-            src={TradeMarkData.websiteLogo}
-            alt="logo"
-            className="w-[100px] h-[100px] p-2"
-          />
-        </div>
+        <Link to="/">
+          <div className="cursor-pointer hover:scale-105 duration-500">
+            <img
+              src={TradeMarkData.websiteLogo}
+              alt="logo"
+              className="w-[100px] h-[100px] p-2"
+            />
+          </div>
+        </Link>
+
         <div>
           <div className="flex gap-10 items-center">
             {HeaderItems.map((items, idx) => {
@@ -75,7 +79,14 @@ const Header = () => {
           <AiOutlineMenu className="w-[50px] h-[50px]" />
         </div>
       </div>
-      {Hidden && <DropHeader title={Data.title} image={Data.image} />}
+      {Hidden && (
+        <DropHeader
+          title={Data.title}
+          image={Data.image}
+          setHidden={setHidden}
+          setIsSelected={setIsSelected}
+        />
+      )}
     </div>
   );
 };
