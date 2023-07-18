@@ -133,8 +133,9 @@ export const AdminPostSection = [
 ];
 //Custom
 
-export const SocialMedia = [
+export const SocialMediaCustom = [
   {
+    id: 0,
     title: "Trang zalo",
     icon: "SiZalo",
     image:
@@ -142,6 +143,7 @@ export const SocialMedia = [
     style: "hover:text-blue-600 hover:bg-white w-10",
   },
   {
+    id: 1,
     title: "Facebook cá nhân",
     icon: "BsFacebook",
     image:
@@ -150,13 +152,7 @@ export const SocialMedia = [
   },
 
   {
-    title: "Trang Instagram",
-    icon: "AiFillInstagram",
-    image: "https://images2.alphacoders.com/123/1230947.png",
-    style: "hover:bg-pink-600 hover:text-white",
-  },
-
-  {
+    id: 5,
     title: "Trang Tiktok",
     icon: "FaTiktok",
     image: "https://images.alphacoders.com/112/1123670.png",
@@ -164,6 +160,7 @@ export const SocialMedia = [
   },
 
   {
+    id: 7,
     title: "Trang YouTube",
     icon: "BsYoutube",
     image:
@@ -183,7 +180,7 @@ export const HeaderItems = [
   },
   {
     name: "Hệ thống phân phối",
-    link: "https://wuling-ev.vn/he-thong-showroom",
+    link: "/branches",
   },
   {
     name: "Tin tức",
@@ -246,18 +243,26 @@ export const DropHeaderItems = [
     title: [
       {
         name: " Về TMT Motors",
+        link: "/introduction",
       },
       {
         name: "Về Liên doanh của General Motors (Mỹ) - SGMW",
+        link: "/introduction",
       },
       {
-        name: " Về Wuling",
+        name: " Lịch sử phát triển",
+        link: "/introduction",
       },
     ],
     image: "https://wuling-ev.vn/Content/images/img-about.png",
   },
   {
-    title: [],
+    title: [
+      {
+        name: "    HongGuang MiniEV      ",
+        link: "/products",
+      },
+    ],
     image:
       "https://firebasestorage.googleapis.com/v0/b/xedienmientay-cb391.appspot.com/o/image%2F2.png?alt=media&token=a0cac0e8-552e-4c5a-89e5-4629af722b96",
   },
@@ -269,12 +274,31 @@ export const DropHeaderItems = [
     title: [
       {
         name: "Khác",
+        link: "/news",
       },
       {
         name: "Công ty",
+        link: "/news",
       },
     ],
     image:
       "https://firebasestorage.googleapis.com/v0/b/xedienmientay-cb391.appspot.com/o/image%2F1.png?alt=media&token=8cb3717a-d5e7-435a-b318-f520cc482095",
+  },
+  {
+    title: [
+      {
+        name: "Dự toán trả góp",
+        link: "/installment-price",
+      },
+      {
+        name: "Chi phí lăn bánh",
+        link: "/price",
+      },
+      {
+        name: "Đăng ký lái thử",
+        link: "/test-drive",
+      },
+    ],
+    image: "https://wuling-ev.vn/Content/images/img-more.png",
   },
 ];

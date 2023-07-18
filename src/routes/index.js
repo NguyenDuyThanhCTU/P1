@@ -3,6 +3,7 @@ import Admin from "../components/Admin/Admin";
 import DefaultLayout from "../Layout/DefaultLayout";
 import Home from "../components/Client/Home/Home";
 import ClientLayout from "../Layout/ClientLayout.jsx/ClientLayout";
+import Introduction from "../components/Client/Introduction/Introduction";
 
 export const AllRoutes = [
   {
@@ -20,4 +21,39 @@ export const AllRoutes = [
     component: Home,
     Layout: ClientLayout,
   },
+  {
+    path: "/introduction",
+    component: Introduction,
+    Layout: ClientLayout,
+  },
+  // {
+  //   path: "/products",
+  //   component: Introduction,
+  //   Layout: ClientLayout,
+  // },
+  // {
+  //   path: "/branches",
+  //   component: Introduction,
+  //   Layout: ClientLayout,
+  // },
+  // {
+  //   path: "/news",
+  //   component: Introduction,
+  //   Layout: ClientLayout,
+  // },
+  // {
+  //   path: "/test-drive",
+  //   component: Introduction,
+  //   Layout: ClientLayout,
+  // },
+  // {
+  //   path: "/installment-price",
+  //   component: Introduction,
+  //   Layout: ClientLayout,
+  // },
+  // {
+  //   path: "/price",
+  //   component: Introduction,
+  //   Layout: ClientLayout,
+  // },
 ];

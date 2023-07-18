@@ -5,10 +5,12 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 import { Autoplay, Pagination, Navigation } from "swiper";
-import { HomeSlideItems } from "../../../../Utils/temp";
 import { Link } from "react-router-dom";
+import { useData } from "../../../../Context/DataProviders";
 
 const Section1 = () => {
+  const { Slides } = useData();
+
   return (
     <div>
       <Swiper
@@ -23,9 +25,9 @@ const Section1 = () => {
         modules={[Pagination, Autoplay]}
         className="mySwiper  "
       >
-        {HomeSlideItems.map((items, idx) => (
+        {Slides?.map((items, idx) => (
           <SwiperSlide>
-            <Link to={items.link}>
+            <Link to="">
               <div className="d:block p:hidden">
                 <img
                   src={items.image}

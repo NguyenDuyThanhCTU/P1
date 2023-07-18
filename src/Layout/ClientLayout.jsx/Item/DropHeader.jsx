@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const DropHeader = ({ title, image }) => {
   return (
@@ -13,9 +14,14 @@ const DropHeader = ({ title, image }) => {
             >
               <div className="flex flex-col gap-2">
                 {title.map((items, idx) => (
-                  <span className="hover:text-blue-600 font-normal text-[16px] text-gray-500 cursor-pointer">
-                    {items.name}
-                  </span>
+                  <Link to={items.link}>
+                    <span
+                      key={idx}
+                      className="hover:text-blue-600 font-normal text-[16px] text-gray-500 cursor-pointer"
+                    >
+                      {items.name}
+                    </span>
+                  </Link>
                 ))}
               </div>
               <div>

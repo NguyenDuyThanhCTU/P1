@@ -2,11 +2,17 @@ import { CiLocationOn, CiMail } from "react-icons/ci";
 import { BiChevronDown, BiPhoneCall } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { FooterContact } from "../../../Utils/temp";
-import { FooterRoles, IconMapping, SocialMedia } from "../../../Utils/item";
+import {
+  FooterRoles,
+  IconMapping,
+  SocialMedia,
+  SocialMediaCustom,
+} from "../../../Utils/item";
 import { useData } from "../../../Context/DataProviders";
 
 const Footer = () => {
-  const { ContactData } = useData();
+  const { ContactData, SocialMedia } = useData();
+
   return (
     <div className="font-NunitoSans  h-auto w-full" id="Footer">
       <div className="overflow-hidden  h-[715px] relative">
@@ -84,20 +90,37 @@ const Footer = () => {
             </div>
           ))}
         </div>
-        <div>
-          <h3>Kết nối với chúng tôi</h3>
-          <div className="flex mt-2 gap-2">
-            {SocialMedia.map((items, idx) => {
-              let Icon = IconMapping[items.icon];
-              return (
-                <div
-                  key={idx}
-                  className={`text-[15px] cursor-pointer border p-1 border-blue-600 text-blue-600 hover:scale-125 duration-300`}
-                >
-                  {Icon && <Icon />}
-                </div>
-              );
-            })}
+        <div className="flex flex-col gap-5">
+          <div className="flex flex-col ">
+            <h3>Kết nối với chúng tôi</h3>
+            <div className="flex mt-2 gap-2">
+              {SocialMediaCustom.map((items, idx) => {
+                let Icon = IconMapping[items.icon];
+                let Point = SocialMedia[items.id];
+                return (
+                  <div
+                    key={idx}
+                    className={`text-[15px] cursor-pointer border p-1 border-blue-600 text-blue-600 hover:scale-125 duration-300`}
+                  >
+                    {Icon && (
+                      <a href={`https://${Point} `} target="_blank">
+                        <Icon />
+                      </a>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          <div className="shadow-2xl">
+            <iframe
+              src={ContactData.location}
+              width="200"
+              height="150"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+            ></iframe>
           </div>
         </div>
       </div>

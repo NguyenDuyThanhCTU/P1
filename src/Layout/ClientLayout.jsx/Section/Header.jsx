@@ -32,7 +32,7 @@ const Header = () => {
           <img
             src={TradeMarkData.websiteLogo}
             alt="logo"
-            className="w-[100px] h-[100px]"
+            className="w-[100px] h-[100px] p-2"
           />
         </div>
         <div>
@@ -56,7 +56,10 @@ const Header = () => {
                 </Link>
               );
             })}
-            <SlOptions className="text-[20px] " />
+            <SlOptions
+              className="text-[20px] cursor-pointer hover:scale-125 duration-300 "
+              onClick={() => HandleSelected(4)}
+            />
           </div>
         </div>
       </div>

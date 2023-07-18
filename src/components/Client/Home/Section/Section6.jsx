@@ -21,8 +21,8 @@ const Section6 = () => {
             <h4 className="font-semibold text-[22px]">Đặt lịch bảo dưỡng</h4>
             <p>
               Quý Khách hàng vui lòng liên hệ đại lý của TMT Motors gần nhất
-              hoặc gọi cho số hotline 1900 545462 để được hỗ trợ các vấn đề Dịch
-              vụ hậu mãi
+              hoặc gọi cho số <br />
+              hotline 0907379757 để được hỗ trợ các vấn đề Dịch vụ hậu mãi
             </p>
           </div>
         </div>

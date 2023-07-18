@@ -15,6 +15,7 @@ module.exports = {
         OpenSans: ["Open Sans", "sans-serif"],
         LexendDeca: ["Lexend Deca", "sans-serif"],
         Montserrat: ["Montserrat", "sans-serif"],
+        NunitoSans: ["Nunito Sans", "sans-serif"],
       },
       colors: {
         redPrimmary: "#ed1b2e",
