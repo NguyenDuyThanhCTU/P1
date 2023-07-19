@@ -27,6 +27,8 @@ module.exports = {
         purpleHover: "#BB86FC",
         BlueFF: "#1A49FF",
         grayBg: "#dbe3e9",
+        content1: "#333333",
+        title: "#666666",
       },
       fontSize: {
         content: "48px",

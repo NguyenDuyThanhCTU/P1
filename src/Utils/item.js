@@ -271,3 +271,47 @@ export const DropHeaderItems = [
     image: "https://wuling-ev.vn/Content/images/img-more.png",
   },
 ];
+
+export const ProductSection2Items = [
+  {
+    image: "https://wuling-ev.vn/Content/images/product/Frame2/icon-2.png",
+    content:
+      "Ô tô điện mini bán chạy nhất thế giới (2020, 2021, 2022), nguồn JATO",
+  },
+  {
+    image: "https://wuling-ev.vn/Content/images/product/Frame2/icon-3.png",
+    content: "Chính sách bảo hành hàng đầu thị trường",
+  },
+  {
+    image: "https://wuling-ev.vn/Content/images/product/Frame2/icon-4.png",
+    content: "Sạc dễ dàng tại ổ điện dân dụng có tiếp địa",
+  },
+  {
+    image: "https://wuling-ev.vn/Content/images/product/Frame2/icon-5.png",
+    content: "Chi phí sạc điện rẻ hơn chi phí đổ xăng xe máy phổ thông",
+  },
+];
+
+export const CardColorItems = [
+  {
+    color: "9cc8ae",
+  },
+  {
+    color: "fbe071",
+  },
+  {
+    color: "febfb6",
+  },
+];
+
+export const HoodColorItems = [
+  {
+    color: "9cc8ae",
+  },
+  {
+    color: "efefef",
+  },
+  {
+    color: "333",
+  },
+];

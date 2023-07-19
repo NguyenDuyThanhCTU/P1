@@ -8,6 +8,12 @@ import { Autoplay, Pagination } from "swiper";
 import { ProductSection1Items } from "../../../../Utils/temp";
 
 const Section1 = () => {
+  const pagination = {
+    clickable: true,
+    renderBullet: function (index, className) {
+      return '<span class="' + className + '">' + "" + "</span>";
+    },
+  };
   return (
     <>
       <Swiper
@@ -18,7 +24,7 @@ const Section1 = () => {
           disableOnInteraction: false,
         }}
         pagination={pagination}
-        modules={[Autoplay, Pagination]}
+        modules={[Pagination, Autoplay]}
         className="mySwiper"
       >
         {ProductSection1Items.map((items, idx) => (
@@ -26,7 +32,7 @@ const Section1 = () => {
             <img
               src={items.image}
               alt="banner"
-              className="h-[90vh] object-cover w-full"
+              className="h-[90vh] object-cover w-full "
             />
           </SwiperSlide>
         ))}
