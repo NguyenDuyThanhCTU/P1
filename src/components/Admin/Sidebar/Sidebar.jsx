@@ -54,7 +54,7 @@ const Sidebar = () => {
           </div>
         </div>
         <div className="flex flex-col items-start gap-5">
-          <h3 className="text-[28px]">Sản phẩm</h3>
+          <h3 className="text-[28px]">Service</h3>
           <div className="flex flex-col items-start gap-10">
             {ProductSidebarAdmin.map((items, idx) => {
               let Icon = IconMapping[items.icon];

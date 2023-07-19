@@ -9,12 +9,12 @@ const DropHeader = ({ title, image, setHidden, setIsSelected }) => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-    }, 2000);
+    }, 500);
     setTimeout(() => {
       navigate(link);
       setHidden(false);
       setIsSelected(10);
-    }, 2300);
+    }, 700);
   };
 
   return (

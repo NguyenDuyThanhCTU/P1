@@ -19,7 +19,6 @@ const Fetch = () => {
     setTradeMarkData,
 
     setAccounts,
-    setUsers,
   } = useData();
 
   const { isRefetch, setIsRefetch } = useStateProvider();
@@ -41,28 +40,10 @@ const Fetch = () => {
           setSocialMedia(items.Data);
         }
       });
-      //Contact
-
-      //Slide
-
-      //Information
-      // setUserName(data[1].username);
-      // setAcademic(data[1].academic);
-      // setWork(data[1].work);
-      // setYearOfBirth(data[1].yearOfBirth);
-      // setStartJob(data[1].startJob);
-      // setAvatar(data[1].avatar);
-      //SocialMedia
-
-      //Trademark
     });
 
     getDocuments("accounts").then((data) => {
       setAccounts(data[0]);
-    });
-
-    getDocuments("users").then((data) => {
-      setUsers(data);
     });
 
     getDocuments("slide").then((data) => {
@@ -70,12 +51,16 @@ const Fetch = () => {
     });
 
     getProducts("posts").then((data) => {
+      data.map((items, idx) => {
+        if (items.type === "Other") {
+        }
+      });
       setProducts(data.reverse());
     });
 
-    getProducts("posttype").then((data) => {
-      setTypePost(data.reverse());
-    });
+    // getProducts("posttype").then((data) => {
+    //   setTypePost(data.reverse());
+    // });
   }, [isRefetch]);
   return <></>;
 };

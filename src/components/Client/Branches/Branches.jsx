@@ -18,15 +18,17 @@ const Branches = () => {
                 <div className="flex flex-col gap-2">
                   <div className="flex justify-between items-center">
                     <p className="font-bold">Địa chỉ</p>
-                    <div className="flex items-center gap-2 text-blue-500">
-                      <BiMapPin />
-                      <p className="hover:underline">Chỉ đường</p>
-                    </div>
+                    <a href={`https://${items.map}`} target="_blank">
+                      <div className="flex items-center gap-2 text-blue-500 cursor-pointer">
+                        <BiMapPin />
+                        <p className="hover:underline">Chỉ đường</p>
+                      </div>
+                    </a>
                   </div>
                   <p className="text-content1 text-[14px]">{items.address}</p>
                   <div className="flex items-center justify-between">
                     <p className="font-bold">Hotline</p>
-                    <div className="flex items-center gap-2 text-blue-500">
+                    <div className="flex items-center gap-2 text-blue-500 cursor-pointer">
                       <BiPhone />
                       <p className="hover:underline text-[14px]">
                         {items.hotline}
@@ -34,7 +36,7 @@ const Branches = () => {
                     </div>
                   </div>
                 </div>
-                <div className=" text-blue-600 border border-blue-600 text-center py-3">
+                <div className=" text-blue-600 border border-blue-600 text-center py-3 cursor-pointer hover:text-white hover:border-white hover:bg-blue-400">
                   Xem thêm
                 </div>
               </div>

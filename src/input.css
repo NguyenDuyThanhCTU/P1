@@ -151,12 +151,18 @@
   .cols-4{
     grid-template-columns: 15% 35% 30% 20%;
   }
+
+  .cols-5{
+    grid-template-columns: 10% 30% 20%  10% 30%;
+  }
+
   .cols-3{
     grid-template-columns: 30% 40% 30%;
   }
   .cols-7{
     grid-template-columns: 5% 10% 10% 10% 10% 15% 40%;
       }
+
 
       .section {
         transition: all 700ms ease 0s;
@@ -208,4 +214,5 @@ font-size: 16px;
 .swiper-pagination-bullet-active {
   color: white !important;
   background: white !important;
+
 }

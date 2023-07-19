@@ -10,14 +10,16 @@ export const DataProviders = ({ children }) => {
   const [HeaderAdmin, setHeaderAdmin] = useState();
 
   const [accounts, setAccounts] = useState("");
-  const [users, setUsers] = useState([]);
 
   const [Banner, setBanner] = useState([]);
 
   const [SocialMedia, setSocialMedia] = useState("");
   const [Products, setProducts] = useState([]);
+  //use
+  const [PostOther, setPostOther] = useState("");
 
   // Custom
+
   const [NewsPosts, setNewsPosts] = useState([]);
 
   const [TypePost, setTypePost] = useState([]);
@@ -36,8 +38,7 @@ export const DataProviders = ({ children }) => {
         accounts,
         setAccounts,
         setHeaderAdmin,
-        setUsers,
-        users,
+
         HeaderAdmin,
         TradeMarkData,
         setTradeMarkData,

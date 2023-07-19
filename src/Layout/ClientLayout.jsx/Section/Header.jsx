@@ -16,13 +16,18 @@ const Header = () => {
   const { TradeMarkData } = useData();
 
   const HandleSelected = (idx) => {
-    if (isSelected === idx) {
+    if (idx === 2) {
       setHidden(false);
       setIsSelected(10);
     } else {
-      setData(DropHeaderItems[idx]);
-      setHidden(true);
-      setIsSelected(idx);
+      if (isSelected === idx) {
+        setHidden(false);
+        setIsSelected(10);
+      } else {
+        setData(DropHeaderItems[idx]);
+        setHidden(true);
+        setIsSelected(idx);
+      }
     }
   };
 

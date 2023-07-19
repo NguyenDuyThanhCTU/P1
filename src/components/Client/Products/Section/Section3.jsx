@@ -48,7 +48,7 @@ const Section3 = () => {
                     onClick={() => setSelectedCardColor(idx)}
                   >
                     <div
-                      className={`h-9 w-9 border-2 border-solid border-white rounded-full  bg-[#${items.color}]`}
+                      className={`h-9 w-9 border-2 border-solid border-white rounded-full  ${items.color}`}
                     ></div>
                   </div>
                 </>
@@ -67,7 +67,7 @@ const Section3 = () => {
                     onClick={() => setSelectedHooddColor(idx)}
                   >
                     <div
-                      className={`h-9 w-9 border-2 border-solid border-white rounded-full  bg-[#${items.color}]`}
+                      className={`h-9 w-9 border-2 border-solid border-white rounded-full  ${items.color}`}
                     ></div>
                   </div>
                 </>

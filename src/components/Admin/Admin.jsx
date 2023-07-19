@@ -32,10 +32,10 @@ const Admin = () => {
           isUploadProduct === "" ? "h-0" : "h-[100vh]"
         }`}
       >
-        {isUploadProduct === "Sản phẩm" ? (
-          <AddPost type="chủ" />
-        ) : isUploadProduct === "Tin tức" ? (
-          <AddPost type="Tin tức" />
+        {isUploadProduct === "Tin Tức Khác" ? (
+          <AddPost type="Other" />
+        ) : isUploadProduct === "Tin tức công ty" ? (
+          <AddPost type="Company" />
         ) : isUploadProduct === "type-Sản phẩm" ? (
           <AddTypePost type="Home" />
         ) : isUploadProduct === "profile" ? (

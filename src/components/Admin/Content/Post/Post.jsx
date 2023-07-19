@@ -26,19 +26,20 @@ const Post = () => {
         <h3 className=" text-[44px] text-center font-bold mb-2 uppercase">
           Danh sách các bài viết
         </h3>
-        <div className="mt-5 border rounded-xl ">
+        <div className="mt-5 border rounded-xl flex flex-col gap-10">
           <Section
-            title="Sản phẩm"
+            title="Tin Tức Khác"
             Data={Products}
             HandleDelete={HandleDelete}
             setIsUploadProduct={setIsUploadProduct}
           />
-          {/* <Section
-            title="Giới thiệu"
-            Data={HomeSection3CarsItem}
+          <span className="h-[2px]  bg-gradient-to-r from-cyan-400 to-blue-300"></span>
+          <Section
+            title="Tin tức công ty"
+            Data={Products}
             HandleDelete={HandleDelete}
             setIsUploadProduct={setIsUploadProduct}
-          /> */}
+          />
           {/* <Section
             title="Tin tức"
             Data={NewsPosts}

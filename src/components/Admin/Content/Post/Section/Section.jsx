@@ -18,7 +18,7 @@ const Section = ({ title, Data, HandleDelete, setIsUploadProduct }) => {
         {Data?.map((data, idx) => (
           <div
             key={data.id}
-            className="grid  cols-7 items-center my-2  ml-1 justify-start px-5 "
+            className="grid  cols-5 items-center my-2  ml-1 justify-start px-5 "
           >
             <div className="group relative ">
               <FiEdit className="text-red-600 hover:scale-125 duration-300 " />
@@ -45,7 +45,7 @@ const Section = ({ title, Data, HandleDelete, setIsUploadProduct }) => {
                 <div className="absolute bg-none w-3 h-8 top-0 -left-2"></div>
               </div>
             </div>
-            <p className="truncate w-[100px]">{data.title}</p>
+            <p className="truncate w-[300px]">{data.title}</p>
 
             <img
               src={data.image}
@@ -69,8 +69,6 @@ const Section = ({ title, Data, HandleDelete, setIsUploadProduct }) => {
                 </>
               )}
             </div>
-            <div className="truncate w-[100px]">{data.type}</div>
-            <div className="truncate w-[150px]">{data.section}</div>
             <p className=" truncate ">{data.content}</p>
           </div>
         ))}
@@ -83,14 +81,6 @@ const Section = ({ title, Data, HandleDelete, setIsUploadProduct }) => {
           }}
         >
           Thêm bài viết
-        </button>
-        <button
-          className="py-3 px-5 bg-BlueFF  rounded-sm hover:bg-BlueFFhover"
-          onClick={() => {
-            setIsUploadProduct(`type-${title}`);
-          }}
-        >
-          Thêm thể loại bài viết
         </button>
       </div>
     </div>

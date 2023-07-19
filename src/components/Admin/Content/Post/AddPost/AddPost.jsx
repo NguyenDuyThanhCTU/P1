@@ -9,28 +9,15 @@ import { notification } from "antd";
 
 import { useStateProvider } from "../../../../../Context/StateProvider";
 import Input from "../../../Item/Input";
-import {
-  addDocument,
-  getDocumentByField,
-} from "../../../../../Config/Services/Firebase/FireStoreDB";
-import { AdminPostSection } from "../../../../../Utils/item";
+import { addDocument } from "../../../../../Config/Services/Firebase/FireStoreDB";
 
 const AddProduct = ({ type }) => {
   const [imageUrl, setImageUrl] = useState();
   const [Title, setTitle] = useState("");
   const [Content, setContent] = useState("");
   const [error, setError] = useState(false);
-  const [Section, setSection] = useState("Thông Tin Mới");
-  const [Type, setType] = useState("");
-  const [DataFetch, setDataFetch] = useState([]);
-  const { setIsUploadProduct, setIsRefetch } = useStateProvider();
 
-  useEffect(() => {
-    getDocumentByField("posttype", "section", Section).then((data) => {
-      setDataFetch(data);
-      setType(data[0]?.name);
-    });
-  }, [Section]);
+  const { setIsUploadProduct, setIsRefetch } = useStateProvider();
 
   const handleDiscard = () => {
     setImageUrl();
@@ -45,18 +32,16 @@ const AddProduct = ({ type }) => {
         description: `Vui lòng bổ sung đầy đủ thông tin !`,
       });
     } else {
-      let Post = "";
-      if ((type = "chủ")) {
-        Post = "Home";
+      let Type = "";
+      if ((type = "Other")) {
+        Type = "Other";
       } else {
-        Post = "News";
+        Type = "Company";
       }
       const data = {
-        image: "",
+        image: imageUrl,
         content: Content,
         title: Title,
-        post: Post,
-        section: Section,
         type: Type,
       };
 
@@ -78,10 +63,10 @@ const AddProduct = ({ type }) => {
     if (filetypes.includes(selectImage.type)) {
       const storage = getStorage();
       let storageRef = ref(storage, `${selectImage.name}`);
-      if (type === "Home") {
-        storageRef = ref(storage, `Post/Home/${selectImage.name}`);
-      } else if (type === "News") {
-        storageRef = ref(storage, `Post/News/${selectImage.name}`);
+      if (type === "Other") {
+        storageRef = ref(storage, `Posts/Other/${selectImage.name}`);
+      } else if (type === "Company") {
+        storageRef = ref(storage, `Posts/Company/${selectImage.name}`);
       }
 
       uploadBytes(storageRef, selectImage)
@@ -112,7 +97,7 @@ const AddProduct = ({ type }) => {
     >
       <div className="w-[1500px] h-[700px] absolute bg-white bottom-[15%] left-[12%]  font-LexendDeca cursor-pointer rounded-sm flex flex-col justify-center">
         <p className="text-2xl font-bold text-center text-[30px] mb-5">
-          Tải bài viết lên Trang {type} của bạn
+          Tải bài viết lên trang của bạn
         </p>
         <div className="flex">
           <div className="justify-center   w-full flex items-center gap-20">
@@ -189,49 +174,6 @@ const AddProduct = ({ type }) => {
                   setValue={setContent}
                   type="textarea"
                 />
-
-                <div className="flex flex-col gap-2">
-                  <label className="block text-gray-700 text-sm font-bold ">
-                    Section:
-                  </label>
-                  <select
-                    className="outline-none lg:w-650 border-2 border-gray-200 text-md capitalize lg:p-4 p-2 rounded cursor-pointer"
-                    onChange={(e) => {
-                      setSection(e.target.value);
-                    }}
-                  >
-                    {AdminPostSection?.map((item) => (
-                      <option
-                        key={item.name}
-                        className=" outline-none capitalize bg-white text-gray-700 text-md p-2 hover:bg-slate-300"
-                        value={item.name}
-                      >
-                        {item.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div className="flex flex-col gap-2 mt-5">
-                  <label className="block text-gray-700 text-sm font-bold  ">
-                    Loại bài viết:
-                  </label>
-                  <select
-                    className="outline-none lg:w-650 border-2 border-gray-200 text-md capitalize lg:p-4 p-2 rounded cursor-pointer "
-                    onChange={(e) => {
-                      setType(e.target.value);
-                    }}
-                  >
-                    {DataFetch?.map((item, idx) => (
-                      <option
-                        key={idx}
-                        className=" outline-none capitalize bg-white text-gray-700 text-md p-2 hover:bg-slate-300 "
-                        value={item.name}
-                      >
-                        {item.name}
-                      </option>
-                    ))}
-                  </select>
-                </div>
 
                 <div className="flex gap-6 mt-10">
                   <button

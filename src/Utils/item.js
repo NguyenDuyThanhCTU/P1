@@ -1,8 +1,12 @@
 import { SiZalo } from "react-icons/si";
 import { BsFacebook, BsMessenger, BsYoutube } from "react-icons/bs";
 import { HiOutlineUserGroup } from "react-icons/hi";
-import { AiFillInstagram, AiOutlineUnorderedList } from "react-icons/ai";
-import { FaTiktok } from "react-icons/fa";
+import {
+  AiFillInstagram,
+  AiOutlineSlack,
+  AiOutlineUnorderedList,
+} from "react-icons/ai";
+import { FaFirstOrderAlt, FaTiktok } from "react-icons/fa";
 import { AiOutlineTwitter } from "react-icons/ai";
 import { BiNetworkChart, BiSlideshow } from "react-icons/bi";
 import { TbListDetails, TbSlideshow } from "react-icons/tb";
@@ -25,15 +29,25 @@ export const IconMapping = {
   MdOutlinePostAdd: MdOutlinePostAdd,
   AiOutlineUnorderedList: AiOutlineUnorderedList,
   CgListTree: CgListTree,
+  FaFirstOrderAlt: FaFirstOrderAlt,
+  AiOutlineSlack: AiOutlineSlack,
 };
 
 export const ProductSidebarAdmin = [
   {
-    name: "Danh sách sản phẩm",
+    name: "Giới thiệu",
+    icon: "AiOutlineSlack",
+  },
+  {
+    name: "Sản phẩm",
     icon: "AiOutlineUnorderedList",
   },
   {
-    name: "loại sản phẩm",
+    name: "Đơn hàng",
+    icon: "FaFirstOrderAlt",
+  },
+  {
+    name: "Chi nhánh",
     icon: "CgListTree",
   },
 ];
@@ -52,7 +66,7 @@ export const WebsiteSidebarAdmin = [
     icon: "BiNetworkChart",
   },
   {
-    name: "Các bài viết",
+    name: "Bài viết",
     icon: "MdOutlinePostAdd",
   },
   {
@@ -294,24 +308,24 @@ export const ProductSection2Items = [
 
 export const CardColorItems = [
   {
-    color: "9cc8ae",
+    color: "bg-[#9cc8ae]",
   },
   {
-    color: "fbe071",
+    color: " bg-[#fbe071]",
   },
   {
-    color: "febfb6",
+    color: " bg-[#febfb6]",
   },
 ];
 
 export const HoodColorItems = [
   {
-    color: "9cc8ae",
+    color: " bg-[#9cc8ae]",
   },
   {
-    color: "efefef",
+    color: " bg-[#efefef]",
   },
   {
-    color: "333",
+    color: " bg-[#333]",
   },
 ];
