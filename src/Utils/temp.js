@@ -3,7 +3,7 @@ export const FooterContact = [
     name: "Giới thiệu",
     items: [
       {
-        name: "Về TMT Motors",
+        name: "Về Trường Xuân Group",
       },
       {
         name: "Về Liên doanh của General Motors (Mỹ) - SGMW",

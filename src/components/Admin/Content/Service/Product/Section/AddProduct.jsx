@@ -1,20 +1,43 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
+import { Autoplay, Pagination, Navigation } from "swiper";
+import { FiEdit } from "react-icons/fi";
+import { FcViewDetails } from "react-icons/fc";
+import { MdDeleteForever } from "react-icons/md";
 import { getStorage } from "firebase/storage";
 import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import { Empty, notification } from "antd";
 
-import { FaCloudUploadAlt } from "react-icons/fa";
-import ListProduct from "./ListProduct";
+import { Popconfirm, message, notification } from "antd";
+
 import { useStateProvider } from "../../../../../../Context/StateProvider";
-import { addDocument } from "../../../../../../Config/Services/Firebase/FireStoreDB";
+import { useData } from "../../../../../../Context/DataProviders";
 
-const AddProduct = ({ name, type }) => {
+import {
+  addDocument,
+  delDocument,
+} from "../../../../../../Config/Services/Firebase/FireStoreDB";
+
+const AddProduct = ({ name }) => {
   const [imageUrl, setImageUrl] = useState();
   const [error, setError] = useState(false);
   const [Data, setData] = useState();
   const [selected, setSelected] = useState(false);
   const { setIsRefetch } = useStateProvider();
+  const { Products } = useData();
+
+  const HandleDelete = (id) => {
+    delDocument("slide", id).then(() => {
+      notification["success"]({
+        message: "Thành công!",
+        description: `Yêu cầu của bạn đã được thực hiện thành công !`,
+      });
+    });
+    setIsRefetch("deleted");
+  };
 
   const uploadImage = async (e) => {
     let selectImage = e.target.files[0];
@@ -47,23 +70,6 @@ const AddProduct = ({ name, type }) => {
     setError(false);
   }, 3000);
 
-  const HandleUpdate = () => {
-    const data = {
-      image: `${imageUrl ? imageUrl : Data}`,
-    };
-
-    addDocument("slide", data).then(() => {
-      notification["success"]({
-        message: "Thành công !",
-        description: `
-        Thông tin đã được CẬP NHẬT !`,
-      });
-      setIsRefetch("personal title");
-      setSelected(false);
-      setImageUrl();
-    });
-  };
-
   return (
     <div className=" rounded-xl">
       <div className="p-4 flex gap-5 border flex-col">
@@ -77,93 +83,125 @@ const AddProduct = ({ name, type }) => {
           <div className="grid grid-cols-2 gap-10 cursor-pointer  h-[550px]  p-5 border">
             <div className="shadow-2xl bg-[#353535] h-[300px] hover:shadow-gray-700 duration-300">
               <div className="w-[480px] h-[320px]">
-                <label className="cursor-pointer">
-                  <div className="flex flex-col items-center justify-center h-full">
-                    <div className="flex flex-col justify-center items-center">
-                      <p className="font-bold text-xl">
-                        <FaCloudUploadAlt className="text-gray-300 text-6xl" />
-                      </p>
-                      <p className="text-xl font-semibold">
-                        Chọn hình ảnh để tải lên
-                      </p>
+                <div className="p-3">
+                  <div className="flex justify-between items-center text-[25px] pb-3 flex-col gap-5">
+                    <p className="uppercase text-white text-center w-full">
+                      Danh sách hình ảnh sản phẩm
+                    </p>
+
+                    <div className="h-[200px] w-[400px] border  rounded-2xl  ">
+                      <Swiper
+                        spaceBetween={30}
+                        centeredSlides={true}
+                        autoplay={{
+                          delay: 2500,
+                          disableOnInteraction: false,
+                        }}
+                        pagination={{
+                          clickable: true,
+                        }}
+                        navigation={true}
+                        modules={[Autoplay, Pagination, Navigation]}
+                        className="mySwiper"
+                      >
+                        {Products.map((items) => (
+                          <>
+                            <SwiperSlide>
+                              <img
+                                key={items.id}
+                                src={items.image}
+                                alt="banner"
+                                className="h-[200px] w-[350px] object-cover p-2"
+                              />
+                            </SwiperSlide>
+                          </>
+                        ))}
+                      </Swiper>
                     </div>
-                    <p className="text-gray-400  text-center mt-10 text-sm leading-10">
-                      Định dạng jpg hoặc png <br />
-                    </p>
-                    <p className="bg-[#0047AB] hover:bg-[#0000FF] text-center mt-8 rounded text-white text-md font-medium p-2 w-52 outline-none">
-                      Chọn từ thiết bị
-                    </p>
                   </div>
-                  <input
-                    type="file"
-                    name="upload-video"
-                    className="w-0 h-0"
-                    onChange={(e) => uploadImage(e)}
-                  />
-                </label>
+                </div>
               </div>
-              <div className=" ml-3 ">
-                <h3 className="py-3 text-[25px] font-bold ">
-                  Thay đổi hình ảnh
-                </h3>
-                <div className="mb-5 flex  items-center gap-2">
-                  <div onClick={() => setSelected(true)} className="w-full">
-                    <input
-                      type="text"
-                      placeholder="Nhập liên kết hình ảnh"
-                      className="py-3 px-4 text-black  border rounded-full outline-none w-full  "
-                      onChange={(e) => setData(e.target.value)}
-                    />
+              <div className="flex flex-col bg-gradient-to-r  from-slate-600  to-slate-700 rounded-md p-5">
+                <div className=" ml-3 ">
+                  <h3 className="py-3 text-[25px] font-bold uppercase underline">
+                    Thêm sản phẩm
+                  </h3>
+                </div>
+
+                <div className="mt-3">
+                  <div className="text-center  uppercase py-2 border mx-2 bg-purple hover:bg-purpleAdmin hover:text-purpleHover hover:border-purpleHover text-blueAdmin border-blueAdmin block group-hover:hidden">
+                    Tải lên
                   </div>
                 </div>
-                {error && (
-                  <p className="text-center text-xl text-red-400 font-semibold mt-4 w-[260px]">
-                    Vui lòng chọn đúng định dạng
-                  </p>
-                )}
               </div>
-              {selected || imageUrl ? (
-                <div className="mt-5">
-                  <div
-                    className="text-center  uppercase py-2 border mx-2 bg-purple hover:bg-purpleAdmin hover:text-purpleHover hover:border-purpleHover text-blueAdmin border-blueAdmin block group-hover:hidden"
-                    onClick={() => HandleUpdate(0)}
-                  >
-                    Cập nhật
-                  </div>
-                </div>
-              ) : (
-                <div className="text-center uppercase py-2 border mx-2 bg-purple  text-gray-400 border-gray-400 block ">
-                  Cập nhật
-                </div>
-              )}
             </div>
             <div className="shadow-2xl bg-[#353535] h-auto hover:shadow-gray-700 duration-300">
-              <div className="w-[480px] h-[320px]">
-                {imageUrl ? (
-                  <>
-                    <img
-                      src={imageUrl}
-                      alt=""
-                      className="w-[467px] h-full object-cover"
-                    />
-                  </>
-                ) : (
-                  <div className="text-white  bg-w w-full">
-                    <Empty
-                      imageStyle={{ height: 60 }}
-                      description={
-                        <span className="text-white">
-                          Hình ảnh chưa được tải lên
-                        </span>
-                      }
-                    />
-                  </div>
-                )}
+              <div className="flex justify-between items-center text-[25px] flex-col gap-5 p-3">
+                <p className="uppercase text-white text-center w-full">
+                  Danh sách sản phẩm
+                </p>
+                <div className="h-[400px] w-[440px] border  rounded-2xl overflow-y-scroll ">
+                  {Products.map((data, idx) => (
+                    <div
+                      key={idx}
+                      className="grid  cols-3 items-center my-2  ml-1 justify-start px-5 "
+                    >
+                      <div className="group relative ">
+                        <FiEdit className="text-red-600 hover:scale-125 duration-300 " />
+                        <div className="w-[120px] bg-white opacity-90 absolute -top-2 h-8 left-5 rounded-lg hidden group-hover:block ">
+                          <div className="mx-3 flex  justify-between text-[24px] h-full items-center ">
+                            <FcViewDetails className="hover:scale-125 duration-300" />
+                            <FiEdit className="text-green-600 hover:scale-125 duration-300" />
+                            <Popconfirm
+                              title="Xóa sản phẩm"
+                              description="Bạn muốn xóa sản phẩm này?"
+                              onConfirm={() => {
+                                HandleDelete(data.id);
+                              }}
+                              onCancel={() => {
+                                message.error("Sản phẩm chưa được xóa!");
+                              }}
+                              okText="Yes"
+                              okType="danger"
+                              cancelText="No"
+                            >
+                              <MdDeleteForever className="text-red-600 hover:scale-125 duration-300" />
+                            </Popconfirm>
+                          </div>
+                          <div className="absolute bg-none w-3 h-8 top-0 -left-2"></div>
+                        </div>
+                      </div>
+
+                      <img
+                        src={data.image}
+                        alt="product"
+                        className="w-14 h-14 rounded-lg object-cover"
+                      />
+                      <div>
+                        {data.daysSinceCreation > 0 ? (
+                          <div>
+                            {" "}
+                            <p className="text-[12px] w-[85px] truncate  py-1 border px-2 rounded-3xl text-orange-300 border-orange-300">
+                              {data.daysSinceCreation} ngày trước
+                            </p>
+                          </div>
+                        ) : (
+                          <>
+                            {" "}
+                            <p className="text-[12px] w-[65px] truncate  border px-2 py-1 rounded-3xl text-green-300 border-green-300">
+                              Bây giờ
+                            </p>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
 
-          <ListProduct type={type} />
+          {/* <ListProduct type={type} /> */}
         </div>
       </div>
     </div>

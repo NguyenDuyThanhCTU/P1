@@ -2,12 +2,11 @@
 
 import { SlOptions } from "react-icons/sl";
 import { AiOutlineDown, AiOutlineMenu } from "react-icons/ai";
-import { DropHeaderItems, HeaderItems } from "../../../Utils/item";
+import { HeaderFooterItems } from "../../../Utils/item";
 import DropHeader from "../Item/DropHeader";
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import { useData } from "../../../Context/DataProviders";
-import { useStateProvider } from "../../../Context/StateProvider";
 
 const Header = () => {
   const [Data, setData] = useState();
@@ -24,7 +23,7 @@ const Header = () => {
         setHidden(false);
         setIsSelected(10);
       } else {
-        setData(DropHeaderItems[idx]);
+        setData(HeaderFooterItems[idx]);
         setHidden(true);
         setIsSelected(idx);
       }
@@ -46,7 +45,7 @@ const Header = () => {
 
         <div>
           <div className="flex gap-10 items-center">
-            {HeaderItems.map((items, idx) => {
+            {HeaderFooterItems.slice(0, 4).map((items, idx) => {
               return (
                 <Link to={`${items.link}`}>
                   <div key={idx} className="flex items-center gap-2">
@@ -54,7 +53,7 @@ const Header = () => {
                       className="uppercase hover:text-blue-600 cursor-pointer font-light text-[#333] tracking-wider"
                       onClick={() => HandleSelected(idx)}
                     >
-                      {items.name}
+                      {items.title}
                     </h3>
                     <AiOutlineDown
                       className={`text-gray-400 text-[14px] duration-300 ${
@@ -72,6 +71,14 @@ const Header = () => {
           </div>
         </div>
       </div>
+      {Hidden && (
+        <DropHeader
+          title={Data.content}
+          image={Data.image}
+          setHidden={setHidden}
+          setIsSelected={setIsSelected}
+        />
+      )}
       <div className="p:flex d:hidden justify-between items-center mx-2">
         <div>
           <img
@@ -84,14 +91,6 @@ const Header = () => {
           <AiOutlineMenu className="w-[50px] h-[50px]" />
         </div>
       </div>
-      {Hidden && (
-        <DropHeader
-          title={Data.title}
-          image={Data.image}
-          setHidden={setHidden}
-          setIsSelected={setIsSelected}
-        />
-      )}
     </div>
   );
 };

@@ -183,24 +183,6 @@ export const SocialMediaCustom = [
   },
 ];
 
-export const HeaderItems = [
-  {
-    name: "giới thiệu",
-    link: "",
-  },
-  {
-    name: "Ô tô điện",
-    link: "",
-  },
-  {
-    name: "Hệ thống phân phối",
-    link: "/branches",
-  },
-  {
-    name: "Tin tức",
-    link: "",
-  },
-];
 export const FooterRoles = [
   {
     name: "Điều khoản pháp lý",
@@ -221,11 +203,12 @@ export const FooterRoles = [
   },
 ];
 
-export const DropHeaderItems = [
+export const HeaderFooterItems = [
   {
-    title: [
+    title: "giới thiệu",
+    content: [
       {
-        name: " Về TMT Motors",
+        name: " Về Trường Xuân Group",
         link: "/introduction",
       },
       {
@@ -238,9 +221,11 @@ export const DropHeaderItems = [
       },
     ],
     image: "https://wuling-ev.vn/Content/images/img-about.png",
+    link: "",
   },
   {
-    title: [
+    title: "Ô tô điện",
+    content: [
       {
         name: "    HongGuang MiniEV      ",
         link: "/products",
@@ -248,13 +233,18 @@ export const DropHeaderItems = [
     ],
     image:
       "https://firebasestorage.googleapis.com/v0/b/xedienmientay-cb391.appspot.com/o/image%2F2.png?alt=media&token=a0cac0e8-552e-4c5a-89e5-4629af722b96",
+
+    link: "",
   },
   {
-    title: [],
+    title: "Hệ thống phân phối",
+    content: [],
     image: "",
+    link: "/branches",
   },
   {
-    title: [
+    title: "Tin tức",
+    content: [
       {
         name: "Khác",
         link: "/news",
@@ -266,9 +256,12 @@ export const DropHeaderItems = [
     ],
     image:
       "https://firebasestorage.googleapis.com/v0/b/xedienmientay-cb391.appspot.com/o/image%2F1.png?alt=media&token=8cb3717a-d5e7-435a-b318-f520cc482095",
+
+    link: "",
   },
   {
-    title: [
+    title: "",
+    content: [
       {
         name: "Dự toán trả góp",
         link: "/installment-price",
@@ -283,6 +276,7 @@ export const DropHeaderItems = [
       },
     ],
     image: "https://wuling-ev.vn/Content/images/img-more.png",
+    link: "",
   },
 ];
 

@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { FooterContact } from "../../../Utils/temp";
 import {
   FooterRoles,
+  HeaderFooterItems,
+  HeaderItems,
   IconMapping,
   SocialMedia,
   SocialMediaCustom,
@@ -11,7 +13,7 @@ import {
 import { useData } from "../../../Context/DataProviders";
 
 const Footer = () => {
-  const { ContactData, SocialMedia } = useData();
+  const { ContactData, SocialMedia, TradeMarkData } = useData();
 
   return (
     <div className="font-NunitoSans  h-auto w-full" id="Footer">
@@ -39,18 +41,14 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center d:items-start d:gap-5 text-[13px] py-5 d:flex-row p:flex-col p:gap-10 p:items-center ">
+      <div className="flex justify-center d:items-start d:gap-5 text-[13px] py-10 d:flex-row p:flex-col p:gap-10 p:items-center ">
         <div className="flex flex-col d:w-[400px] p:w-auto p-2">
           <div className="flex items-center h-[54px] gap-5">
             <img
               src="https://wuling-ev.vn/Content/images/logo-TMT.svg"
               alt="logo"
             />
-            <img
-              src="https://firebasestorage.googleapis.com/v0/b/xedienmientay-346f8.appspot.com/o/Xe%20%C4%90i%E1%BB%87n%20Mi%E1%BB%81n%20T%C3%A2y.png?alt=media&token=27e5018e-ffbe-4c11-9e08-11ba0d15c594"
-              alt="logo"
-              className="h-full"
-            />
+            <img src={TradeMarkData.websiteIco} alt="logo" className="h-full" />
           </div>
 
           <div className="mt-2 flex flex-col gap-2">
@@ -69,21 +67,28 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex flex-col w-[210px] gap-2">
-          {FooterContact.map((items, idx) => (
-            <div key={idx}>
-              <h3 className="font-light uppercase ">{items.name}</h3>
-              {items.items && (
-                <div className="ml-4">
-                  {items.items.map((items, idx) => (
-                    <li className="text-[12px] text-[#666666]">{items.name}</li>
+        <div className="flex flex-col w-[210px] gap-4 cursor-pointer">
+          {HeaderFooterItems.slice(0, 4).map((items, idx) => (
+            <div key={idx} className="group">
+              <h3 className=" uppercase hover:text-blue-600 ">{items.title}</h3>
+              {items.content && (
+                <div className="ml-4  duration-300 hidden group-hover:block">
+                  {items.content.map((items, idx) => (
+                    <a href={`${items.link}`}>
+                      <li
+                        key={idx}
+                        className="text-[12px] text-[#666666] hover:underline hover:text-blue-600"
+                      >
+                        {items.name}
+                      </li>
+                    </a>
                   ))}
                 </div>
               )}
             </div>
           ))}
         </div>
-        <div className="flex flex-col gap-3 uppercase ">
+        <div className="flex flex-col gap-4 uppercase ">
           {FooterRoles.map((items, idx) => (
             <div key={idx} className="hover:text-blue-600">
               <Link href={items.link}>{items.name}</Link>
