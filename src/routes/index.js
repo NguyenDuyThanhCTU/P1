@@ -6,6 +6,7 @@ import ClientLayout from "../Layout/ClientLayout.jsx/ClientLayout";
 import Introduction from "../components/Client/Introduction/Introduction";
 import Product from "../components/Client/Products/Product";
 import Branches from "../components/Client/Branches/Branches";
+import News from "../components/Client/News/News";
 
 export const AllRoutes = [
   {
@@ -38,11 +39,12 @@ export const AllRoutes = [
     component: Branches,
     Layout: ClientLayout,
   },
-  // {
-  //   path: "/news",
-  //   component: Introduction,
-  //   Layout: ClientLayout,
-  // },
+  {
+    path: "/news",
+    component: News,
+    Layout: ClientLayout,
+  },
+
   // {
   //   path: "/test-drive",
   //   component: Introduction,

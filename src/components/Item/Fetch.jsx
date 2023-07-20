@@ -10,19 +10,17 @@ import {
 const Fetch = () => {
   const {
     setProducts,
-
     setSocialMedia,
-    setTypePost,
     setSlides,
-
     setContactData,
     setTradeMarkData,
-
     setAccounts,
+    setPostOther,
+    setPostCompany,
+    PostCompany,
   } = useData();
 
   const { isRefetch, setIsRefetch } = useStateProvider();
-
   useEffect(() => {
     setIsRefetch(1);
   }, []);
@@ -51,11 +49,13 @@ const Fetch = () => {
     });
 
     getProducts("posts").then((data) => {
-      data.map((items, idx) => {
-        if (items.type === "Other") {
-        }
-      });
-      setProducts(data.reverse());
+      const otherItems = data.reverse().filter((item) => item.type === "Other");
+      setPostOther(otherItems);
+
+      const companyItems = data
+        .reverse()
+        .filter((item) => item.type !== "Other");
+      setPostCompany(companyItems);
     });
 
     // getProducts("posttype").then((data) => {

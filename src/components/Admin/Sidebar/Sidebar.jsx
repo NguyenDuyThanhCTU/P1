@@ -9,13 +9,13 @@ import {
 import { notification } from "antd";
 const Sidebar = () => {
   const { isSelected, setSelected } = useStateProvider();
-  const HandleBlock = () => {
-    notification["warning"]({
-      message: "Thao tác không thành công",
-      description: ` 
-      Website của bạn không hỗ trợ chức năng này !`,
-    });
-  };
+  // const HandleBlock = () => {
+  //   notification["warning"]({
+  //     message: "Thao tác không thành công",
+  //     description: `
+  //     Website của bạn không hỗ trợ chức năng này !`,
+  //   });
+  // };
   return (
     <div className="bg-black  h-screen text-white border-r border-gray-800">
       <div className="w-full flex items-center justify-center border-b border-gray-800 py-3">
@@ -61,12 +61,18 @@ const Sidebar = () => {
 
               return (
                 <div
-                  className={`flex gap-3 items-center cursor-pointer hover:scale-125 duration-300 ${"border-white"}`}
-                  onClick={() => HandleBlock()}
+                  className={`flex gap-3 items-center cursor-pointer hover:scale-125 duration-300 ${
+                    isSelected === idx + 5 ? "text-blue-400" : "border-white"
+                  }`}
+                  onClick={() => setSelected(idx + 5)}
                 >
                   {Icon && (
                     <Icon
-                      className={`border-2 rounded-full text-[30px] p-[3px]  ${"border-white"}`}
+                      className={`border-2 rounded-full text-[30px] p-[3px] ${
+                        isSelected === idx + 5
+                          ? "border-blue-400"
+                          : "border-white"
+                      }`}
                     />
                   )}
                   <p> {items.name}</p>
@@ -89,6 +95,14 @@ const Sidebar = () => {
             ? "translate-y-[212px]"
             : isSelected === 4
             ? "translate-y-[282px]"
+            : isSelected === 5
+            ? "translate-y-[439px]"
+            : isSelected === 6
+            ? "translate-y-[509px]"
+            : isSelected === 7
+            ? "translate-y-[579px]"
+            : isSelected === 8
+            ? "translate-y-[649px]"
             : null
         }`}
         ></div>

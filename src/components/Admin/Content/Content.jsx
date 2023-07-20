@@ -6,6 +6,8 @@ import Slide from "./Slide/Slide";
 import { useStateProvider } from "../../../Context/StateProvider";
 import Post from "./Post/Post";
 import Video from "./Video/Video";
+import Introduce from "./Service/Introduce/Introduce";
+import Product from "./Service/Product/Product";
 
 const Persona = () => {
   const { isSelected } = useStateProvider();
@@ -33,6 +35,33 @@ const Persona = () => {
             </div>
           </>
         ) : isSelected === 4 ? (
+          <>
+            <div className="p-5 px-10 flex justify-start gap-10">
+              {/* <Video /> */}
+              <></>
+            </div>
+          </>
+        ) : isSelected === 5 ? (
+          <>
+            <div className="p-5 px-10 flex justify-start gap-10">
+              <Introduce />
+              <></>
+            </div>
+          </>
+        ) : isSelected === 6 ? (
+          <>
+            <div className="p-5 px-10 flex justify-start gap-10">
+              <Product />
+            </div>
+          </>
+        ) : isSelected === 7 ? (
+          <>
+            <div className="p-5 px-10 flex justify-start gap-10">
+              {/* <Video /> */}
+              <></>
+            </div>
+          </>
+        ) : isSelected === 8 ? (
           <>
             <div className="p-5 px-10 flex justify-start gap-10">
               {/* <Video /> */}

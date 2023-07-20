@@ -8,7 +8,7 @@ import { useData } from "../../../../Context/DataProviders";
 
 const Post = () => {
   const { setIsUploadProduct, setIsRefetch } = useStateProvider();
-  const { Products } = useData();
+  const { PostOther, PostCompany } = useData();
 
   const HandleDelete = (id) => {
     delDocument("posts", id).then(() => {
@@ -29,14 +29,14 @@ const Post = () => {
         <div className="mt-5 border rounded-xl flex flex-col gap-10">
           <Section
             title="Tin Tức Khác"
-            Data={Products}
+            Data={PostOther}
             HandleDelete={HandleDelete}
             setIsUploadProduct={setIsUploadProduct}
           />
           <span className="h-[2px]  bg-gradient-to-r from-cyan-400 to-blue-300"></span>
           <Section
             title="Tin tức công ty"
-            Data={Products}
+            Data={PostCompany}
             HandleDelete={HandleDelete}
             setIsUploadProduct={setIsUploadProduct}
           />

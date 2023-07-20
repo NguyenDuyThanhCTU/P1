@@ -32,17 +32,11 @@ const AddProduct = ({ type }) => {
         description: `Vui lòng bổ sung đầy đủ thông tin !`,
       });
     } else {
-      let Type = "";
-      if ((type = "Other")) {
-        Type = "Other";
-      } else {
-        Type = "Company";
-      }
       const data = {
         image: imageUrl,
         content: Content,
         title: Title,
-        type: Type,
+        type: type,
       };
 
       addDocument("posts", data).then(() => {
@@ -50,7 +44,12 @@ const AddProduct = ({ type }) => {
           message: "Tải lên thành công!",
           description: `Sản phẩm của bạn đã được tải lên !`,
         });
-        setIsRefetch("Add Home Post");
+        if ((type = "Other")) {
+          setIsRefetch("Add Other Post");
+        } else {
+          setIsRefetch("Add Company Post");
+        }
+
         handleDiscard();
       });
     }

@@ -51,6 +51,20 @@
     overflow: hidden;
     text-overflow: ellipsis;
   }
+  .truncate2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .truncate3 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   
   .call-animation {
     padding: 10px;
