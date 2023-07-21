@@ -1,5 +1,5 @@
 import React from "react";
-import AddProduct from "./Section/AddProduct";
+import ListProducts from "./Section/ListProducts";
 
 const Product = () => {
   return (
@@ -8,7 +8,7 @@ const Product = () => {
         <h3 className=" text-[44px] text-center font-bold mb-2 uppercase ">
           Thông tin sản phẩm
         </h3>
-        <AddProduct name="Thêm sản phẩm" />
+        <ListProducts name="Thêm sản phẩm" />
       </div>
     </div>
   );

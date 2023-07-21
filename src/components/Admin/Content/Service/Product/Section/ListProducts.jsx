@@ -8,25 +8,18 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 import { FiEdit } from "react-icons/fi";
 import { FcViewDetails } from "react-icons/fc";
 import { MdDeleteForever } from "react-icons/md";
-import { getStorage } from "firebase/storage";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 
 import { Popconfirm, message, notification } from "antd";
 
 import { useStateProvider } from "../../../../../../Context/StateProvider";
 import { useData } from "../../../../../../Context/DataProviders";
 
-import {
-  addDocument,
-  delDocument,
-} from "../../../../../../Config/Services/Firebase/FireStoreDB";
+import { delDocument } from "../../../../../../Config/Services/Firebase/FireStoreDB";
+import { AiOutlineCloudUpload } from "react-icons/ai";
+import ListProduct from "./ListTypes";
 
-const AddProduct = ({ name }) => {
-  const [imageUrl, setImageUrl] = useState();
-  const [error, setError] = useState(false);
-  const [Data, setData] = useState();
-  const [selected, setSelected] = useState(false);
-  const { setIsRefetch } = useStateProvider();
+const ListProducts = ({ name }) => {
+  const { setIsRefetch, setIsUploadProduct } = useStateProvider();
   const { Products } = useData();
 
   const HandleDelete = (id) => {
@@ -38,37 +31,6 @@ const AddProduct = ({ name }) => {
     });
     setIsRefetch("deleted");
   };
-
-  const uploadImage = async (e) => {
-    let selectImage = e.target.files[0];
-    const filetypes = ["image/jpeg", "image/jpg", "image/png"];
-
-    if (filetypes.includes(selectImage.type)) {
-      const storage = getStorage();
-      const storageRef = ref(storage, `img/slide/${selectImage.name}`);
-
-      uploadBytes(storageRef, selectImage)
-        .then((snapshot) => {
-          console.log("Uploaded a blob or file!");
-
-          getDownloadURL(snapshot.ref)
-            .then((url) => {
-              setImageUrl(url);
-            })
-            .catch((error) => {
-              console.error("Error getting download URL:", error);
-            });
-        })
-        .catch((error) => {
-          console.error("Error uploading file:", error);
-        });
-    } else {
-      setError(true);
-    }
-  };
-  setTimeout(() => {
-    setError(false);
-  }, 3000);
 
   return (
     <div className=" rounded-xl">
@@ -111,7 +73,7 @@ const AddProduct = ({ name }) => {
                                 key={items.id}
                                 src={items.image}
                                 alt="banner"
-                                className="h-[200px] w-[350px] object-cover p-2"
+                                className="h-[200px] w-full object-contain p-4"
                               />
                             </SwiperSlide>
                           </>
@@ -121,7 +83,7 @@ const AddProduct = ({ name }) => {
                   </div>
                 </div>
               </div>
-              <div className="flex flex-col bg-gradient-to-r  from-slate-600  to-slate-700 rounded-md p-5">
+              <div className="flex flex-col bg-gradient-to-r  from-gray-600  to-gray-700 rounded-md p-5">
                 <div className=" ml-3 ">
                   <h3 className="py-3 text-[25px] font-bold uppercase underline">
                     Thêm sản phẩm
@@ -129,8 +91,12 @@ const AddProduct = ({ name }) => {
                 </div>
 
                 <div className="mt-3">
-                  <div className="text-center  uppercase py-2 border mx-2 bg-purple hover:bg-purpleAdmin hover:text-purpleHover hover:border-purpleHover text-blueAdmin border-blueAdmin block group-hover:hidden">
-                    Tải lên
+                  <div
+                    className="flex  justify-center items-center gap-2 uppercase py-2 border mx-2 bg-purple hover:bg-purpleAdmin hover:text-purpleHover hover:border-purpleHover text-blueAdmin border-blueAdmin  "
+                    onClick={() => setIsUploadProduct("addProduct")}
+                  >
+                    <AiOutlineCloudUpload className="text-[20px]" />{" "}
+                    <p>Tải lên</p>
                   </div>
                 </div>
               </div>
@@ -144,7 +110,7 @@ const AddProduct = ({ name }) => {
                   {Products.map((data, idx) => (
                     <div
                       key={idx}
-                      className="grid  cols-3 items-center my-2  ml-1 justify-start px-5 "
+                      className="grid  grid-cols-5 items-center my-2  ml-1 justify-start px-5 "
                     >
                       <div className="group relative ">
                         <FiEdit className="text-red-600 hover:scale-125 duration-300 " />
@@ -177,6 +143,12 @@ const AddProduct = ({ name }) => {
                         alt="product"
                         className="w-14 h-14 rounded-lg object-cover"
                       />
+                      <div className="truncate w-[70px] text-[14px] ">
+                        {data.cartype}
+                      </div>
+                      <div className="truncate w-[70px] text-[14px]">
+                        {data.price}
+                      </div>
                       <div>
                         {data.daysSinceCreation > 0 ? (
                           <div>
@@ -201,11 +173,11 @@ const AddProduct = ({ name }) => {
             </div>
           </div>
 
-          {/* <ListProduct type={type} /> */}
+          <ListProduct />
         </div>
       </div>
     </div>
   );
 };
 
-export default AddProduct;
+export default ListProducts;

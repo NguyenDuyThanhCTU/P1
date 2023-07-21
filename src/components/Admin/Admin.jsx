@@ -11,8 +11,9 @@ import { useStateProvider } from "../../Context/StateProvider";
 
 import Content from "../Admin/Content/Content";
 import AddPost from "../Admin/Content/Post/AddPost/AddPost";
-import AddTypePost from "./Content/Post/AddTypePost/AddTypePost";
+import AddType from "./Item/AddType/AddType";
 import Profile from "./Header/Profile/Profile";
+import AddProduct from "./Item/AddProduct/AddProduct";
 
 const Admin = () => {
   const { verify } = useAuth();
@@ -36,8 +37,20 @@ const Admin = () => {
           <AddPost type="Other" />
         ) : isUploadProduct === "Tin tức công ty" ? (
           <AddPost type="Company" />
-        ) : isUploadProduct === "type-Sản phẩm" ? (
-          <AddTypePost type="Home" />
+        ) : isUploadProduct === "Pin xe" ? (
+          <AddType type="Pin xe" />
+        ) : isUploadProduct === "Màu xe" ? (
+          <AddType type="Màu xe" />
+        ) : isUploadProduct === "Màu mui xe" ? (
+          <AddType type="Màu mui xe" />
+        ) : isUploadProduct === "Kích cỡ xe" ? (
+          <AddType type="Kích cỡ xe" />
+        ) : isUploadProduct === "Số chổ ngồi" ? (
+          <AddType type="Số chổ ngồi" />
+        ) : isUploadProduct === "Dòng xe" ? (
+          <AddType type="Dòng xe" />
+        ) : isUploadProduct === "addProduct" ? (
+          <AddProduct />
         ) : isUploadProduct === "profile" ? (
           <Profile type="Home" />
         ) : null}

@@ -1,5 +1,10 @@
 import { SiZalo } from "react-icons/si";
-import { BsFacebook, BsMessenger, BsYoutube } from "react-icons/bs";
+import {
+  BsFacebook,
+  BsMessenger,
+  BsYoutube,
+  BsBatteryCharging,
+} from "react-icons/bs";
 import { HiOutlineUserGroup } from "react-icons/hi";
 import {
   AiFillInstagram,
@@ -9,9 +14,18 @@ import {
 import { FaFirstOrderAlt, FaTiktok } from "react-icons/fa";
 import { AiOutlineTwitter } from "react-icons/ai";
 import { BiNetworkChart, BiSlideshow } from "react-icons/bi";
-import { TbListDetails, TbSlideshow } from "react-icons/tb";
-import { MdOutlinePostAdd } from "react-icons/md";
-import { CgListTree } from "react-icons/cg";
+import {
+  TbCarouselHorizontal,
+  TbListDetails,
+  TbSlideshow,
+} from "react-icons/tb";
+import {
+  MdAirlineSeatReclineNormal,
+  MdOutlineLocalCarWash,
+  MdOutlinePostAdd,
+} from "react-icons/md";
+import { CgListTree, CgSize } from "react-icons/cg";
+import { IoMdColorWand } from "react-icons/io";
 
 export const IconMapping = {
   SiZalo: SiZalo,
@@ -31,6 +45,12 @@ export const IconMapping = {
   CgListTree: CgListTree,
   FaFirstOrderAlt: FaFirstOrderAlt,
   AiOutlineSlack: AiOutlineSlack,
+  BsBatteryCharging: BsBatteryCharging,
+  IoMdColorWand: IoMdColorWand,
+  MdAirlineSeatReclineNormal: MdAirlineSeatReclineNormal,
+  CgSize: CgSize,
+  MdOutlineLocalCarWash: MdOutlineLocalCarWash,
+  TbCarouselHorizontal: TbCarouselHorizontal,
 };
 
 export const ProductSidebarAdmin = [
@@ -40,11 +60,11 @@ export const ProductSidebarAdmin = [
   },
   {
     name: "Sản phẩm",
-    icon: "AiOutlineUnorderedList",
+    icon: "FaFirstOrderAlt",
   },
   {
     name: "Đơn hàng",
-    icon: "FaFirstOrderAlt",
+    icon: "AiOutlineUnorderedList",
   },
   {
     name: "Chi nhánh",
@@ -321,5 +341,33 @@ export const HoodColorItems = [
   },
   {
     color: " bg-[#333]",
+  },
+];
+
+//Dashboard:
+export const ProductOptionItems = [
+  {
+    name: "Pin xe",
+    icon: "BsBatteryCharging",
+  },
+  {
+    name: "Màu xe",
+    icon: "IoMdColorWand",
+  },
+  {
+    name: "Màu mui xe",
+    icon: "MdOutlineLocalCarWash",
+  },
+  {
+    name: "Kích cỡ xe",
+    icon: "CgSize",
+  },
+  {
+    name: "Số chổ ngồi",
+    icon: "MdAirlineSeatReclineNormal",
+  },
+  {
+    name: "Dòng xe",
+    icon: "TbCarouselHorizontal",
   },
 ];

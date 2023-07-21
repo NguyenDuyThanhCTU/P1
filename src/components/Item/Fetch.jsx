@@ -9,7 +9,7 @@ import {
 
 const Fetch = () => {
   const {
-    setProducts,
+    //Website
     setSocialMedia,
     setSlides,
     setContactData,
@@ -17,7 +17,9 @@ const Fetch = () => {
     setAccounts,
     setPostOther,
     setPostCompany,
-    PostCompany,
+    //Service
+    setProductType,
+    setProducts,
   } = useData();
 
   const { isRefetch, setIsRefetch } = useStateProvider();
@@ -58,9 +60,12 @@ const Fetch = () => {
       setPostCompany(companyItems);
     });
 
-    // getProducts("posttype").then((data) => {
-    //   setTypePost(data.reverse());
-    // });
+    getProducts("productTypes").then((data) => {
+      setProductType(data.reverse());
+    });
+    getProducts("products").then((data) => {
+      setProducts(data.reverse());
+    });
   }, [isRefetch]);
   return <></>;
 };

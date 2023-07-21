@@ -5,7 +5,6 @@ import { MdDeleteForever } from "react-icons/md";
 import { Popconfirm, message } from "antd";
 
 const Section = ({ title, Data, HandleDelete, setIsUploadProduct }) => {
-  console.log(Data);
   return (
     <div className="p-5">
       <div className="flex items-center justify-start gap-2 ">

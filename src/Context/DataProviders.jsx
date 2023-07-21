@@ -3,34 +3,25 @@ import React, { createContext, useContext, useState } from "react";
 export const DataContext = createContext();
 
 export const DataProviders = ({ children }) => {
-  // Default
-
+  //Website
   const [ContactData, setContactData] = useState("");
+
   const [TradeMarkData, setTradeMarkData] = useState("");
+
+  const [Slides, setSlides] = useState([]);
+
+  const [SocialMedia, setSocialMedia] = useState("");
+
+  const [PostOther, setPostOther] = useState([]);
+  const [PostCompany, setPostCompany] = useState([]);
+
   const [HeaderAdmin, setHeaderAdmin] = useState();
 
   const [accounts, setAccounts] = useState("");
 
-  const [Banner, setBanner] = useState([]);
-
-  const [SocialMedia, setSocialMedia] = useState("");
+  //Services
   const [Products, setProducts] = useState([]);
-  //use
-  const [PostOther, setPostOther] = useState([]);
-  const [PostCompany, setPostCompany] = useState([]);
-  // Custom
-
-  const [NewsPosts, setNewsPosts] = useState([]);
-
-  const [TypePost, setTypePost] = useState([]);
-  const [Slides, setSlides] = useState([]);
-
-  const [userName, setUserName] = useState();
-  const [Academic, setAcademic] = useState();
-  const [Work, setWork] = useState();
-  const [YearOfBirth, setYearOfBirth] = useState();
-  const [StartJob, setStartJob] = useState();
-  const [Avatar, setAvatar] = useState();
+  const [productTypes, setProductType] = useState([]);
 
   return (
     <DataContext.Provider
@@ -49,32 +40,14 @@ export const DataProviders = ({ children }) => {
         ContactData,
         setContactData,
 
-        Avatar,
-        setAvatar,
-        userName,
-        setUserName,
-        Academic,
-        setAcademic,
-        Work,
-        setWork,
-        YearOfBirth,
-        setYearOfBirth,
-        StartJob,
-        setStartJob,
-
-        TypePost,
-        setTypePost,
+        productTypes,
+        setProductType,
 
         Slides,
         setSlides,
 
         Products,
         setProducts,
-        NewsPosts,
-        setNewsPosts,
-
-        Banner,
-        setBanner,
 
         SocialMedia,
         setSocialMedia,
