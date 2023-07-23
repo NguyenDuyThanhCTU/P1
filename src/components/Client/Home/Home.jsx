@@ -28,7 +28,7 @@ const Home = () => {
     }
   };
   return (
-    <div className="relative">
+    <div className="relative -z-10">
       {/* <div className=" bottom-10 left-10 z-30 fixed font-LexendDeca">
         {HomeNavItems.map((items, idx) => (
           <>

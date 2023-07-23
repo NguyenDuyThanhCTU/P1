@@ -20,6 +20,7 @@ const Fetch = () => {
     //Service
     setProductType,
     setProducts,
+    setOrders,
   } = useData();
 
   const { isRefetch, setIsRefetch } = useStateProvider();
@@ -54,17 +55,20 @@ const Fetch = () => {
       const otherItems = data.reverse().filter((item) => item.type === "Other");
       setPostOther(otherItems);
 
-      const companyItems = data
-        .reverse()
-        .filter((item) => item.type !== "Other");
+      const companyItems = data.filter((item) => item.type == "Company");
+
       setPostCompany(companyItems);
     });
 
     getProducts("productTypes").then((data) => {
       setProductType(data.reverse());
     });
+
     getProducts("products").then((data) => {
       setProducts(data.reverse());
+    });
+    getProducts("orders").then((data) => {
+      setOrders(data.reverse());
     });
   }, [isRefetch]);
   return <></>;

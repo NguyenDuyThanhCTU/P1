@@ -41,6 +41,23 @@ export const getDocuments = async (Collection) => {
   }
 };
 
+export const getDocumentById = async (Collection, documentId) => {
+  try {
+    const docRef = doc(db, Collection, documentId);
+    const docSnapshot = await getDoc(docRef);
+
+    if (docSnapshot.exists()) {
+      return { id: docSnapshot.id, ...docSnapshot.data() };
+    } else {
+      console.log("Document not found.");
+      return null;
+    }
+  } catch (error) {
+    console.error("Error get document by ID: ", error);
+    throw error;
+  }
+};
+
 export const getProducts = async (Collection) => {
   try {
     const q = query(collection(db, Collection), orderBy("createdAt"));

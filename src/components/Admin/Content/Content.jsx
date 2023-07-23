@@ -8,13 +8,14 @@ import Post from "./Post/Post";
 import Video from "./Video/Video";
 import Introduce from "./Service/Introduce/Introduce";
 import Product from "./Service/Product/Product";
+import Order from "./Service/Order/Order";
 
 const Persona = () => {
   const { isSelected } = useStateProvider();
 
   return (
     <div className="relative ">
-      <div className="overflow-scroll h-[864px] w-full  font-LexendDeca text-[#D8D8D8]  ">
+      <div className="overflow-scroll h-[93vh] w-full  font-LexendDeca text-[#D8D8D8]  ">
         {isSelected === 0 ? (
           <div className="p-5 px-10 flex justify-start gap-10">
             <Contact />
@@ -57,7 +58,7 @@ const Persona = () => {
         ) : isSelected === 7 ? (
           <>
             <div className="p-5 px-10 flex justify-start gap-10">
-              {/* <Video /> */}
+              <Order />
               <></>
             </div>
           </>

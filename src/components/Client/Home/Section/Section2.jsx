@@ -2,7 +2,7 @@ import React from "react";
 
 const Section2 = () => {
   return (
-    <div className="h-[100vh] w-full flex font-Montserrat items-center d:flex-row p:flex-col d:gap-0 p:gap-10">
+    <div className="d:h-[100vh] p:h-auto py-4 w-full flex font-Montserrat items-center d:flex-row p:flex-col d:gap-0 p:gap-10">
       <div className="d:px-[100px] d:w-[40%] p:px-2 p:w-auto">
         <div className="flex flex-col gap-7 text-[#666666]">
           <h3 className="text-[32px] text-black font-light">Về chúng tôi</h3>

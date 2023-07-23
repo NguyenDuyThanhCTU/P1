@@ -10,10 +10,10 @@ const Section1 = () => {
           className="w-full h-full object-cover object-center"
         />
       </div>
-      <div className="w-full ">
-        <div className="my-9   h-[700px] flex f">
-          <div className="flex-1">
-            <div className="px-24 flex flex-col gap-5 ">
+      <div className="w-full d:h-[100vh] p:h-auto overflow-hidden">
+        <div className="my-9   d:h-[700px] p:h-auto flex p:flex-col d:flex-row">
+          <div className="flex-[60%] h-auto">
+            <div className="d:px-24  p:px-2 flex flex-col gap-5 ">
               <h3 className="text-title">Về TRƯỜNG XUÂN GROUP</h3>
               <p className="text-content">
                 Trường Xuân GROUP là Tập đoàn nhập khẩu ô tô tải , máy nông
@@ -61,7 +61,7 @@ const Section1 = () => {
               </p>
             </div>
           </div>
-          <div className="flex-1 my-14">
+          <div className="flex-[40%] my-14">
             <img
               src="https://firebasestorage.googleapis.com/v0/b/xedienmientay-cb391.appspot.com/o/img%2Fslide%2Fz4525458209453_b13b8beeecc18aed98ff4d90a4d963a3.jpg?alt=media&token=399dbf72-ff2a-42ba-a565-a4d849d70fd6"
               alt="img"

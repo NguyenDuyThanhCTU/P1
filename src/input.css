@@ -169,6 +169,9 @@
   .cols-5{
     grid-template-columns: 10% 30% 20%  10% 30%;
   }
+  .cols-10{
+    grid-template-columns: 5% 10% 15% 15%  10% 10% 15%  10% 5% 5%;
+  }
 
   .cols-3{
     grid-template-columns: 10% 70% 20%;

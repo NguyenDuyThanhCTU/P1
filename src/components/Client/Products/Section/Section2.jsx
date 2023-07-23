@@ -3,8 +3,8 @@ import { ProductSection2Items } from "../../../../Utils/item";
 
 const Section2 = () => {
   return (
-    <div className="bg-[url(https://wuling-ev.vn/Content/images/product/Frame2/bg-about-model.jpg)] flex h-screen items-center gap-5">
-      <div className="flex flex-col flex-1 ml-[100px] gap-5 ">
+    <div className="bg-[url(https://wuling-ev.vn/Content/images/product/Frame2/bg-about-model.jpg)] flex d:h-screen p:h-auto items-center gap-5">
+      <div className="flex flex-col  d:flex-1 d:ml-[100px] p:ml-2 gap-5 py-4 ">
         <div>
           <img
             src="https://wuling-ev.vn/Content/images/product/Frame2/title-card-about-model.png"
@@ -32,7 +32,7 @@ const Section2 = () => {
           {ProductSection2Items.map((items, idx) => (
             <div
               key={idx}
-              className="p-4 flex items-center gap-3 text-title rounded-[30px] bg-[rgba(255,255,255,.5)]"
+              className="p-4 flex d:flex-row p:flex-col items-center gap-3 text-title rounded-[30px] bg-[rgba(255,255,255,.5)]"
             >
               <img src={items.image} alt="Item" />
               <p className="text-[18px] font-bold">{items.content}</p>

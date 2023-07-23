@@ -3,8 +3,8 @@ import React from "react";
 const Section2 = () => {
   return (
     <div className="flex flex-col gap-14 ">
-      <div className="w-full ">
-        <div className="my-9   h-[700px] flex items-center">
+      <div className="w-full  d:h-[100vh p:h-auto">
+        <div className="my-9   d:h-[700px] p:h-auto flex items-center d:flex-row p:flex-col">
           <div className="flex-1 my-14">
             <img
               src="https://wuling-ev.vn/uploads/files/img-2.jpg"
@@ -13,7 +13,7 @@ const Section2 = () => {
             />
           </div>
           <div className="flex-1">
-            <div className="px-24 flex flex-col gap-5 ">
+            <div className="d:px-24 p:px-2 flex flex-col gap-5 ">
               <h3 className="text-title">Giải thưởng</h3>
               <div className="flex flex-col gap-5">
                 <div className="flex items-start gap-3">
@@ -23,7 +23,7 @@ const Section2 = () => {
                     alt="cup"
                     className="w-5 h-5"
                   />{" "}
-                  <p className="text-content text-right">
+                  <p className="text-content">
                     "Thương hiệu mạnh Việt Nam" năm 2009-2010
                   </p>
                 </div>
@@ -80,7 +80,7 @@ const Section2 = () => {
           </div>
         </div>
       </div>
-      <div className="w-full h-[600px]">
+      <div className="w-full  h-[100vh] d:block p:hidden">
         <img
           src="https://firebasestorage.googleapis.com/v0/b/xedienmientay-cb391.appspot.com/o/img%2Fslide%2Fz4525458213451_51a5a634f25ee17c8251d4d290501f64.jpg?alt=media&token=f1f08e6a-fe44-42db-861e-52de24e399df"
           alt="introduction Img"

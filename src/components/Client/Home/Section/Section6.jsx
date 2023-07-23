@@ -2,7 +2,7 @@ import React from "react";
 
 const Section6 = () => {
   return (
-    <div className="flex h-screen w-full items-center">
+    <div className="flex h-[894px]  w-full items-center">
       <div className="flex-1 font-Montserrat  ">
         <div className="p-[100px] flex flex-col gap-5">
           <h3 className="text-[32px] font-light">Dịch vụ hậu mãi</h3>

@@ -4,10 +4,14 @@ import {
   BsMessenger,
   BsYoutube,
   BsBatteryCharging,
+  BsFillSendExclamationFill,
+  BsFillSendCheckFill,
+  BsFillSendXFill,
 } from "react-icons/bs";
 import { HiOutlineUserGroup } from "react-icons/hi";
 import {
   AiFillInstagram,
+  AiOutlineProfile,
   AiOutlineSlack,
   AiOutlineUnorderedList,
 } from "react-icons/ai";
@@ -16,6 +20,7 @@ import { AiOutlineTwitter } from "react-icons/ai";
 import { BiNetworkChart, BiSlideshow } from "react-icons/bi";
 import {
   TbCarouselHorizontal,
+  TbCubeSend,
   TbListDetails,
   TbSlideshow,
 } from "react-icons/tb";
@@ -26,6 +31,9 @@ import {
 } from "react-icons/md";
 import { CgListTree, CgSize } from "react-icons/cg";
 import { IoMdColorWand } from "react-icons/io";
+import { GiExitDoor } from "react-icons/gi";
+
+import { CiViewList } from "react-icons/ci";
 
 export const IconMapping = {
   SiZalo: SiZalo,
@@ -51,6 +59,13 @@ export const IconMapping = {
   CgSize: CgSize,
   MdOutlineLocalCarWash: MdOutlineLocalCarWash,
   TbCarouselHorizontal: TbCarouselHorizontal,
+  GiExitDoor: GiExitDoor,
+  AiOutlineProfile: AiOutlineProfile,
+  BsFillSendExclamationFill: BsFillSendExclamationFill,
+  BsFillSendCheckFill: BsFillSendCheckFill,
+  TbCubeSend: TbCubeSend,
+  BsFillSendXFill: BsFillSendXFill,
+  CiViewList: CiViewList,
 };
 
 export const ProductSidebarAdmin = [
@@ -225,7 +240,7 @@ export const FooterRoles = [
 
 export const HeaderFooterItems = [
   {
-    title: "giới thiệu",
+    title: "Giới thiệu",
     content: [
       {
         name: " Về Trường Xuân Group",
@@ -280,23 +295,27 @@ export const HeaderFooterItems = [
     link: "",
   },
   {
-    title: "",
+    title: "Đặc cọc",
     content: [
       {
+        name: "Đặt cọc",
+        link: "/order",
+      },
+      {
         name: "Dự toán trả góp",
-        link: "/installment-price",
+        link: "/order",
       },
       {
         name: "Chi phí lăn bánh",
-        link: "/price",
+        link: "/order",
       },
       {
         name: "Đăng ký lái thử",
-        link: "/test-drive",
+        link: "order",
       },
     ],
     image: "https://wuling-ev.vn/Content/images/img-more.png",
-    link: "",
+    link: "/order",
   },
 ];
 
@@ -369,5 +388,59 @@ export const ProductOptionItems = [
   {
     name: "Dòng xe",
     icon: "TbCarouselHorizontal",
+  },
+];
+
+//Header dashboard & option productItém
+
+export const HeaderDropDownItems = [
+  {
+    name: "Hồ sơ",
+    icon: "AiOutlineProfile",
+  },
+  {
+    name: "Thoát",
+    icon: "GiExitDoor",
+  },
+];
+
+export const OrderDashboardItems = [
+  {
+    name: "Mới",
+    icon: "BsFillSendExclamationFill",
+  },
+  {
+    name: "Đã phản hồi",
+    icon: "BsFillSendCheckFill",
+  },
+  {
+    name: "Đã thanh toán",
+    icon: "TbCubeSend",
+  },
+  {
+    name: "Hủy đơn",
+    icon: "BsFillSendXFill",
+  },
+  {
+    name: "Chi tiết đơn hàng",
+    icon: "CiViewList",
+  },
+];
+
+export const links = [
+  {
+    link: "/introduction",
+  },
+  {
+    link: "/products",
+  },
+  {
+    link: "/branches",
+  },
+  {
+    link: "/news",
+  },
+  {
+    link: "/order",
   },
 ];

@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useStateProvider } from "../../../Context/StateProvider";
 
-const DropHeader = ({ title, image, setHidden, setIsSelected }) => {
+const DropHeader = ({ title, image, setIsDropDonw, setIsSelected }) => {
   const { setIsLoading } = useStateProvider();
   const navigate = useNavigate();
   const HandleClick = (link) => {
@@ -12,7 +12,7 @@ const DropHeader = ({ title, image, setHidden, setIsSelected }) => {
     }, 500);
     setTimeout(() => {
       navigate(link);
-      setHidden(false);
+      setIsDropDonw(false);
       setIsSelected(10);
     }, 700);
   };

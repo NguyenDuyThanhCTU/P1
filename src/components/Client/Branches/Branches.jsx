@@ -4,11 +4,11 @@ import { BranchesItems } from "../../../Utils/temp";
 
 const Branches = () => {
   return (
-    <div className="h-screen font-Montserrat">
+    <div className="d:h-screen p:h-auto font-Montserrat">
       <div className="p-10">
         <h3 className="text-[42px] font-light ">Hệ thống phân phối</h3>
 
-        <div className="grid grid-cols-4 gap-5 font-NunitoSans mt-10">
+        <div className="grid d:grid-cols-4 gap-5 font-NunitoSans mt-10 p:grid-cols-1">
           {BranchesItems.map((items, idx) => (
             <div className="rounded-sm shadow-2xl border">
               <div className="p-4 flex flex-col justify-between h-full gap-3">

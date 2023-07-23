@@ -6,6 +6,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination } from "swiper";
 import { ProductSection1Items } from "../../../../Utils/temp";
+import { Link } from "react-scroll";
 
 const Section1 = () => {
   const pagination = {
@@ -15,7 +16,7 @@ const Section1 = () => {
     },
   };
   return (
-    <>
+    <a href="/order">
       <Swiper
         spaceBetween={30}
         centeredSlides={true}
@@ -25,7 +26,7 @@ const Section1 = () => {
         }}
         pagination={pagination}
         modules={[Pagination, Autoplay]}
-        className="mySwiper"
+        className="mySwiper cursor-pointer"
       >
         {ProductSection1Items.map((items, idx) => (
           <SwiperSlide>
@@ -37,7 +38,7 @@ const Section1 = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-    </>
+    </a>
   );
 };
 

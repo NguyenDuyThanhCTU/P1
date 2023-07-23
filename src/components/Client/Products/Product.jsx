@@ -8,7 +8,9 @@ const Product = () => {
     <>
       <Section1 />
       <Section2 />
-      <Section3 />
+      <div className="d:block p:hidden">
+        <Section3 />
+      </div>
     </>
   );
 };

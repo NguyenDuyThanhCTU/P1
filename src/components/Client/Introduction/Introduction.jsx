@@ -9,8 +9,10 @@ const Introduction = () => {
     <>
       <Section1 />
       <Section2 />
-      <Section3 />
-      <Section4 />
+      <div className="p:hidden d:block">
+        <Section3 />
+        <Section4 />
+      </div>
     </>
   );
 };

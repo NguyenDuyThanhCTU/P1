@@ -5,13 +5,13 @@ import { useData } from "../../../Context/DataProviders";
 const News = () => {
   const [isSelected, setSelected] = useState(false);
   const { PostOther, PostCompany } = useData();
-
+  console.log(PostCompany);
   return (
     <div>
-      <div className="p-20 ">
+      <div className="d:p-20 p:p-2">
         <div className="w-full items-center flex flex-col font-Montserrat">
           <h3 className="text-content1 text-[42px] font-light">Tin Tức</h3>
-          <div className="flex items-center text-[#999999] text-[20px] font-light mt-3 cursor-pointer">
+          <div className="flex d:flex-row p:flex-col items-center text-[#999999] text-[20px] font-light mt-3 cursor-pointer">
             <div
               className={`px-16 py-3 border-b-2 ${
                 !isSelected && "border-blue-500"

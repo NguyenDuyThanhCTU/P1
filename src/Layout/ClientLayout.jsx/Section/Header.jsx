@@ -2,29 +2,34 @@
 
 import { SlOptions } from "react-icons/sl";
 import { AiOutlineDown, AiOutlineMenu } from "react-icons/ai";
-import { HeaderFooterItems } from "../../../Utils/item";
+import { HeaderFooterItems, links } from "../../../Utils/item";
 import DropHeader from "../Item/DropHeader";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useData } from "../../../Context/DataProviders";
+import { BsFillTelephoneFill, BsSearch } from "react-icons/bs";
+import { RxCross1 } from "react-icons/rx";
+import DropDownHeader from "../../../components/Item/Phone/DropDownHeader";
+import { MdOutlineFormatListBulleted } from "react-icons/md";
 
 const Header = () => {
   const [Data, setData] = useState();
   const [isSelected, setIsSelected] = useState(10);
   const [Hidden, setHidden] = useState(false);
+  const [isDropDown, setIsDropDonw] = useState(false);
   const { TradeMarkData } = useData();
 
   const HandleSelected = (idx) => {
     if (idx === 2) {
-      setHidden(false);
+      setIsDropDonw(false);
       setIsSelected(10);
     } else {
       if (isSelected === idx) {
-        setHidden(false);
+        setIsDropDonw(false);
         setIsSelected(10);
       } else {
         setData(HeaderFooterItems[idx]);
-        setHidden(true);
+        setIsDropDonw(true);
         setIsSelected(idx);
       }
     }
@@ -71,24 +76,52 @@ const Header = () => {
           </div>
         </div>
       </div>
-      {Hidden && (
+      {isDropDown && (
         <DropHeader
-          title={Data.content}
-          image={Data.image}
-          setHidden={setHidden}
+          title={Data?.content}
+          image={Data?.image}
+          setIsDropDonw={setIsDropDonw}
           setIsSelected={setIsSelected}
         />
       )}
-      <div className="p:flex d:hidden justify-between items-center mx-2">
-        <div>
-          <img
-            src={TradeMarkData.websiteLogo}
-            alt="logo"
-            className="w-[100px] h-[100px]"
-          />
+      <div className="p:block d:hidden w-full  h-[60px] z-50">
+        <div className="flex justify-between  items-center">
+          <Link to="/">
+            <img
+              src={TradeMarkData.websiteLogo}
+              alt="logo"
+              className="h-[55px] ml-36"
+            />
+          </Link>
+          <div className="flex items-center text-[60px]">
+            {Hidden ? (
+              <RxCross1
+                className="bg-redPrimmary text-white p-2 "
+                onClick={() => setHidden(!Hidden)}
+              />
+            ) : (
+              <MdOutlineFormatListBulleted
+                className="bg-redPrimmary text-white p-2 "
+                onClick={() => setHidden(!Hidden)}
+              />
+            )}
+          </div>
         </div>
-        <div>
-          <AiOutlineMenu className="w-[50px] h-[50px]" />
+        <div
+          className={`${
+            Hidden ? "h-screen" : "h-0 "
+          } w-full duration-700 bg-[rgba(253,253,253,0.9)] overflow-hidden `}
+        >
+          {HeaderFooterItems.map((items, idx) => {
+            let reLink = links[idx];
+            return (
+              <DropDownHeader
+                content={items.title}
+                link={reLink}
+                setHidden={setHidden}
+              />
+            );
+          })}
         </div>
       </div>
     </div>

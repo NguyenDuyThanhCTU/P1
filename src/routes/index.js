@@ -7,6 +7,8 @@ import Introduction from "../components/Client/Introduction/Introduction";
 import Product from "../components/Client/Products/Product";
 import Branches from "../components/Client/Branches/Branches";
 import News from "../components/Client/News/News";
+import Order from "../components/Client/Order/Order";
+import PostDetail from "../components/Client/PostDetail/PostDetail";
 
 export const AllRoutes = [
   {
@@ -44,6 +46,16 @@ export const AllRoutes = [
     component: News,
     Layout: ClientLayout,
   },
+  {
+    path: "/order",
+    component: Order,
+    Layout: ClientLayout,
+  },
+  {
+    path: "/news/:id",
+    component: PostDetail,
+    Layout: ClientLayout,
+  },
 
   // {
   //   path: "/test-drive",
@@ -51,12 +63,12 @@ export const AllRoutes = [
   //   Layout: ClientLayout,
   // },
   // {
-  //   path: "/installment-price",
+  //   path: "/order/pay-installment",
   //   component: Introduction,
   //   Layout: ClientLayout,
   // },
   // {
-  //   path: "/price",
+  //   path: "/order/pay-direct",
   //   component: Introduction,
   //   Layout: ClientLayout,
   // },

@@ -8,7 +8,7 @@ import "swiper/css/navigation";
 import { Autoplay, Pagination, Navigation } from "swiper";
 const Section5 = () => {
   return (
-    <div className="h-screen w-full flex flex-col items-center gap-32">
+    <div className="h-[894px]  w-full flex flex-col items-center gap-32">
       <div className="mt-10  pb-2">
         <h3 className="uppercase font-LexendDeca font-extralight -tracking-tighter text-[25px]">
           Tin tức
@@ -30,7 +30,7 @@ const Section5 = () => {
       >
         {HomeSection5Items.map((items, idx) => (
           <SwiperSlide>
-            <div className="flex gap-1 h-[600px] font-Montserrat" key={idx}>
+            <div className="flex gap-5 h-[600px] font-Montserrat" key={idx}>
               <div className="flex-1">
                 <img
                   src={items.image}

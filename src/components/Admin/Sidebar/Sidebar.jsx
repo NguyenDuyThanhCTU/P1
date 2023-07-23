@@ -17,7 +17,7 @@ const Sidebar = () => {
   //   });
   // };
   return (
-    <div className="bg-black  h-screen text-white border-r border-gray-800">
+    <div className="bg-black  h-[100vh] text-white border-r border-gray-800 overflow-y-scroll w-full">
       <div className="w-full flex items-center justify-center border-b border-gray-800 py-3">
         <img
           src="https://image-sn.s3.amazonaws.com/Russo+Tech.png"
