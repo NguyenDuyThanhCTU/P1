@@ -14,7 +14,6 @@ import { delDocument } from "../../../../../../Config/Services/Firebase/FireStor
 import { useStateProvider } from "../../../../../../Context/StateProvider";
 
 const ListSlide = (type) => {
-  const [ListProducts, setListProducts] = useState([]);
   const { Slides } = useData();
   const { setIsRefetch } = useStateProvider();
   const HandleDelete = (id) => {
@@ -26,20 +25,6 @@ const ListSlide = (type) => {
     });
     setIsRefetch("deleted");
   };
-
-  useEffect(() => {
-    if (type.type === "persona") {
-      const newFilteredArray = Slides.filter(
-        (item) => item.type === "Thành tựu"
-      );
-      setListProducts(newFilteredArray);
-    } else {
-      const newFilteredArray = Slides.filter(
-        (item) => item.type === "Danh hiệu"
-      );
-      setListProducts(newFilteredArray);
-    }
-  }, [Slides]);
 
   return (
     <div className="w-[400px] shadow-2xl bg-[#353535]">
@@ -64,7 +49,7 @@ const ListSlide = (type) => {
             modules={[Autoplay, Pagination, Navigation]}
             className="mySwiper"
           >
-            {ListProducts.map((items) => (
+            {Slides.map((items) => (
               <>
                 <SwiperSlide>
                   <img
@@ -79,7 +64,7 @@ const ListSlide = (type) => {
           </Swiper>
         </div>
         <div className="h-[250px] w-[350px] border mt-5 rounded-2xl overflow-y-scroll ">
-          {ListProducts?.map((data, idx) => (
+          {Slides?.map((data, idx) => (
             <div
               key={idx}
               className="grid  cols-3 items-center my-2  ml-1 justify-start px-5 "
